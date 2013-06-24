@@ -1,7 +1,7 @@
 <?php
-include('../M/ClientDAO.php');
+include('../M/client_DAO.php');
 
-session_start();
+@session_start();
 
 class WFconnexion{
 	
@@ -11,7 +11,7 @@ class WFconnexion{
 	private $password;
 	
 	public function WFconnexion(){
-		$this->clientDAO = new ClientDAO();
+		$this->clientDAO = new Client_DAO();
 	}
 	
 	public function connect($login, $password){
