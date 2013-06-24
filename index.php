@@ -14,8 +14,13 @@
 <div id="header" class="container">
 	<div id="login">
 		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
-		
-		<?php require "login.php"; ?>
+		<?php
+			if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
+				require "logged.php";
+			}
+			else{
+				require "login.php";
+			}?>
 	</div>
 	<div id="menu">
 		<ul>
