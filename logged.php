@@ -1,12 +1,4 @@
-<?php
-session_start();  
-if (!isset($_SESSION['login'])) { 
-   header ('Location: index.php'); 
-   exit();  
-}  
-?>
- 
-<html>
+ <html>
 <head>
 <title>Espace membre</title>
 </head>

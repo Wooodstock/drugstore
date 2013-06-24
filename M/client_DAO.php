@@ -10,7 +10,7 @@
  *
  * @author Bertrand
  */
-class client_DAO {
+class Client_DAO {
     
     private $DAO;
     private $conn;
