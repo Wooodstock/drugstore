@@ -12,8 +12,10 @@
 </head>
 <body>
 <div id="header" class="container">
-	<div id="logo">
-		<h1><a href="#">DRUGSTORE</a></h1>
+	<div id="login">
+		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
+		
+		<?php require "login.php"; ?>
 	</div>
 	<div id="menu">
 		<ul>
@@ -68,12 +70,12 @@
 		<div id="content">
 		<h2>Produits</h2>
 		<span class="byline">Votre pharmacie à portée de clics.</span>
+		<br>
 			<div class="produit">
 			<h1>Paralyoc</h1>
 			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
 			<p>Détails</p>
-			</div>
-
+			</div>
 			<div class="produit">
 			<h1>Paralyoc</h1>
 			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
