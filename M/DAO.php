@@ -2,13 +2,12 @@
 	
 	class DAO{
 	
-	
-	
+	private $conn;
 	private $login;
 	private $password;
 	private $tns = " 
         (DESCRIPTION =
-          (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.15)(PORT = 1521))
+          (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.34)(PORT = 1521))
           (CONNECT_DATA =
             (SERVER = DEDICATED)
             (SERVICE_NAME = orcl.0.2.15)
@@ -27,12 +26,27 @@
 	
 	public function connect(){
             try{
-            $this->conn = new PDO("oci:dbname=".$this->tns,$this->login,$this->password);
+                $this->conn = new PDO("oci:dbname=".$this->tns,$this->login,$this->password);
             }catch(PDOException $e){
                     echo ($e->getMessage());
             }
             return $this->conn;
 	}
+        
+        public function disconnect(){
+            if($this->conn){
+                unset($this->conn);
+                $this->conn = false;
+                return true;
+            }
+        }
+        
+        public function switchConn($login, $password){
+            $this->disconnect();
+            $this->password = $password;
+            $this->login = $login;
+            $this->connect();
+        }
 
     public function testConnection(){
 		$reponse = $this->conn->query('SELECT * FROM FOURNISSEUR');

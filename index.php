@@ -80,49 +80,49 @@
 			<h1>Paralyoc</h1>
 			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
 			<p>Détails</p>
-			</div>
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
-			</div>
-			
-			<div class="produit">
-			<h1>Paralyoc</h1>
-			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
-			<p>Détails</p>
 			</div>
 
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
+			
+			<div class="produit">
+			<h1>Paralyoc</h1>
+			<span class="image image-full"><img src="images/pic01.jpg" alt="" /></span>
+			<p>Détails</p>
+			</div>
 	</div>
 </div>
 	<!--
