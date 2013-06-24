@@ -31,7 +31,7 @@
             }catch(PDOException $e){
                     echo ($e->getMessage());
             }
-            return $conn;
+            return $this->conn;
 	}
 
     public function testConnection(){
@@ -53,12 +53,4 @@
             $this->conn = $conn;
         }
 }
-
-$DAO = new DAO("PHARMAWEB","admin");
-
-$DAO->showdriver();
-$DAO->connect();
-$DAO->testConnection();
-
-
 ?>

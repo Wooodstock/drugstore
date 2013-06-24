@@ -12,37 +12,49 @@ class Client{
 	private $login;
 	private $password;
 	
-	public function Client(){
-		//TODO
-	}
-	
-	//GETTER
-	public function get_id(){
-    	return $id;
+        
+        
+    
+    public function Client($id, $nom, $status, $adresse, $telephone, $mode_remboursement, $cotisation, $login, $password){
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->status = $status;
+        $this->adresse = $adresse;
+        $this->telephone = $telephone;
+        $this->mode_remboursement = $mode_remboursement;
+        $this->cotisation = $cotisation;
+        $this->login = $login;
+        $this->password = $password;
+    }
+        
+
+    //GETTER
+    public function get_id(){
+    return $this->id;
     }
     public function get_nom(){
-    	return $nom;
+    	return $this->nom;
     }
     public function get_status(){
-	    return $status;
+	    return $this->status;
     }
 	public function get_adresse(){
-    	return $adresse;
+    	return $this->adresse;
     }
     public function get_telephone(){
-	    return $telephone;
+	    return $this->telephone;
     }
     public function get_mode_remboursement(){
-    	return $mode_remboursement;
+    	return $this->mode_remboursement;
     }
     public function get_cotisation(){
-    	return $cotisation;
+    	return $this->cotisation;
     }
     public function get_login(){
-    	return $login;
+    	return $this->login;
     }
     public function get_password(){
-    	return $password;
+    	return $this->password;
     }
 	
 	
