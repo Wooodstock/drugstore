@@ -14,8 +14,7 @@
             (SERVICE_NAME = orcl.0.2.15)
           )
     )";
-    private $conn;
-	
+ 	
 	public function DAO($login, $password){
 		$this->login = $login;
 		$this->password = $password;
@@ -27,12 +26,12 @@
 	}
 	
 	public function connect(){
-    	try{
-        $this->conn = new PDO("oci:dbname=".$this->tns,$this->login,$this->password);
-        }catch(PDOException $e){
-        	echo ($e->getMessage());
-        }
-        //return $conn;
+            try{
+            $this->conn = new PDO("oci:dbname=".$this->tns,$this->login,$this->password);
+            }catch(PDOException $e){
+                    echo ($e->getMessage());
+            }
+            return $conn;
 	}
 
     public function testConnection(){
@@ -45,9 +44,15 @@
         $reponse->closeCursor();
         echo 'Query effectuée <br>';
     }
+    
+        public function getConn() {
+            return $this->conn;
+        }
+
+        public function setConn($conn) {
+            $this->conn = $conn;
+        }
 }
-
-
 
 $DAO = new DAO("PHARMAWEB","admin");
 

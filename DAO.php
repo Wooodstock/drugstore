@@ -4,9 +4,9 @@
     foreach(PDO::getAvailableDrivers() as $driver)
         echo $driver, '<br>';
     
-    $tns = " 
+    $tns = "
         (DESCRIPTION =
-          (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.34)(PORT = 1521))
+          (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.15)(PORT = 1521))
           (CONNECT_DATA =
             (SERVER = DEDICATED)
             (SERVICE_NAME = orcl.0.2.15)
