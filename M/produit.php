@@ -4,24 +4,24 @@ class Produit{
 	
 	private $id;
 	private $nom;
-	private $numlot;
-	private $nomfabriquant;
-	private $dateexpiration;
-	private $typeremboursement;
-	private $pourcentagesecu;
-	private $pourcentagemutuelle;
+	private $numLot;
+	private $nomFabriquant;
+	private $dateExpiration;
+	private $typeRemboursement;
 	private $prix;
+        private $stock;
+        private $libClassePharma;
 	
-        function __construct($id, $nom, $numlot, $nomfabriquant, $dateexpiration, $typeremboursement, $pourcentagesecu, $pourcentagemutuelle, $prix) {
+        function __construct($id, $nom, $numLot, $nomFabriquant, $dateExpiration, $typeRemboursement, $prix, $stock, $libClassePharma) {
             $this->id = $id;
             $this->nom = $nom;
-            $this->numlot = $numlot;
-            $this->nomfabriquant = $nomfabriquant;
-            $this->dateexpiration = $dateexpiration;
-            $this->typeremboursement = $typeremboursement;
-            $this->pourcentagesecu = $pourcentagesecu;
-            $this->pourcentagemutuelle = $pourcentagemutuelle;
+            $this->numLot = $numLot;
+            $this->nomFabriquant = $nomFabriquant;
+            $this->dateExpiration = $dateExpiration;
+            $this->typeRemboursement = $typeRemboursement;
             $this->prix = $prix;
+            $this->stock = $stock;
+            $this->libClassePharma = $libClassePharma;
         }
         
         public function getId() {
@@ -40,52 +40,36 @@ class Produit{
             $this->nom = $nom;
         }
 
-        public function getNumlot() {
-            return $this->numlot;
+        public function getNumLot() {
+            return $this->numLot;
         }
 
-        public function setNumlot($numlot) {
-            $this->numlot = $numlot;
+        public function setNumLot($numLot) {
+            $this->numLot = $numLot;
         }
 
-        public function getNomfabriquant() {
-            return $this->nomfabriquant;
+        public function getNomFabriquant() {
+            return $this->nomFabriquant;
         }
 
-        public function setNomfabriquant($nomfabriquant) {
-            $this->nomfabriquant = $nomfabriquant;
+        public function setNomFabriquant($nomFabriquant) {
+            $this->nomFabriquant = $nomFabriquant;
         }
 
-        public function getDateexpiration() {
-            return $this->dateexpiration;
+        public function getDateExpiration() {
+            return $this->dateExpiration;
         }
 
-        public function setDateexpiration($dateexpiration) {
-            $this->dateexpiration = $dateexpiration;
+        public function setDateExpiration($dateExpiration) {
+            $this->dateExpiration = $dateExpiration;
         }
 
-        public function getTyperemboursement() {
-            return $this->typeremboursement;
+        public function getTypeRemboursement() {
+            return $this->typeRemboursement;
         }
 
-        public function setTyperemboursement($typeremboursement) {
-            $this->typeremboursement = $typeremboursement;
-        }
-
-        public function getPourcentagesecu() {
-            return $this->pourcentagesecu;
-        }
-
-        public function setPourcentagesecu($pourcentagesecu) {
-            $this->pourcentagesecu = $pourcentagesecu;
-        }
-
-        public function getPourcentagemutuelle() {
-            return $this->pourcentagemutuelle;
-        }
-
-        public function setPourcentagemutuelle($pourcentagemutuelle) {
-            $this->pourcentagemutuelle = $pourcentagemutuelle;
+        public function setTypeRemboursement($typeRemboursement) {
+            $this->typeRemboursement = $typeRemboursement;
         }
 
         public function getPrix() {
@@ -94,6 +78,22 @@ class Produit{
 
         public function setPrix($prix) {
             $this->prix = $prix;
+        }
+
+        public function getStock() {
+            return $this->stock;
+        }
+
+        public function setStock($stock) {
+            $this->stock = $stock;
+        }
+
+        public function getLibClassePharma() {
+            return $this->libClassePharma;
+        }
+
+        public function setLibClassePharma($libClassePharma) {
+            $this->libClassePharma = $libClassePharma;
         }
 }
 ?>

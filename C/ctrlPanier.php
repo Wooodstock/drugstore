@@ -5,7 +5,7 @@ Class Item{
 	private $produit;
 	private $quantite;
 	
-	public function __construct($produit, $quantite);
+	public function __construct($produit, $quantite)
 	{
 		$this->produit = $produit;
 		$this->quantite = $quantite;
@@ -41,7 +41,7 @@ Class CtrlPanier{
 	
 	private $items;
 	
-	public function __construct($produit, $quantite);
+	public function __construct($produit, $quantite)
 	{
 		$this->items = new array();
 	}
