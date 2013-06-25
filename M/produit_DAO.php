@@ -19,9 +19,8 @@ class Produit_DAO {
     private $DAO;
     private $conn;
     
-    public function Produit_DAO($dao){
-        $this->DAO = $dao;
-        
+    public function __construct($currentUser){
+        $this->DAO = DAO::getDAO($currentUser);
     }
     
     public function getAllParapharma(){
@@ -82,7 +81,4 @@ class Produit_DAO {
     $produit_DAO = new Produit_DAO($DAO);
     echo $produit_DAO->getProduitById(5)->getNom();
  */
-
-
-
 ?>

@@ -66,5 +66,17 @@
         public function setConn($conn) {
             $this->conn = $conn;
         }
+        
+        static function getDAO($currentUser){
+            if($currentUser = 'pharmacien'){
+                return new DAO('pharmacien', 'pharmacien');
+            } else if($currentUser = 'fournisseur'){
+                return new DAO('fournisseur', 'fournisseur');
+            } else if($currentUser = 'preparateur'){
+                return new DAO('preparateur', 'preparateur');
+            } else{
+                return new DAO('client', 'client');
+            }
+        }
 }
 ?>
