@@ -12,63 +12,88 @@ class Produit{
 	private $pourcentagemutuelle;
 	private $prix;
 	
+        function __construct($id, $nom, $numlot, $nomfabriquant, $dateexpiration, $typeremboursement, $pourcentagesecu, $pourcentagemutuelle, $prix) {
+            $this->id = $id;
+            $this->nom = $nom;
+            $this->numlot = $numlot;
+            $this->nomfabriquant = $nomfabriquant;
+            $this->dateexpiration = $dateexpiration;
+            $this->typeremboursement = $typeremboursement;
+            $this->pourcentagesecu = $pourcentagesecu;
+            $this->pourcentagemutuelle = $pourcentagemutuelle;
+            $this->prix = $prix;
+        }
+        
+        public function getId() {
+            return $this->id;
+        }
 
+        public function setId($id) {
+            $this->id = $id;
+        }
 
-	public function get_id(){
-    	return $id;
-    }
-    public function get_nom(){
-    	return $nom;
-    }
-    public function get_numlot(){
-    	return $numlot;
-    }
-    public function get_nomfabriquant(){
-    	return $nomfabriquant;
-    }
-    public function get_dateexpiration(){
-    	return $dateexpiration;
-    }
-    public function get_typeremboursement(){
-    return $typeremboursement;
-    }
-    public function get_pourcentagesecu(){
-    	return $pourcentagesecu;
-    }
-    public function get_pourcentagemutuelle(){
-    	return $pourcentagemutuelle;
-    }
-    public function get_prix(){
-    	return $prix;
-    }
+        public function getNom() {
+            return $this->nom;
+        }
 
-    public function set_id($value){
-	    $this->id = $value;
-	}
-	public function set_nom($value){
-    	$this->nom = $value;
-    }
-    public function set_numlot($value){
-	    $this->numlot = $value;
-    }
-    public function set_nomfabriquant($value){
-    	$this->nomfabriquant = $value;
-    }
-    public function set_dateexpiration($value){
-    	$this->dateexpiration = $value;
-    }
-    public function set_typeremboursement($value){
-    	$this->typeremboursement = $value;
-    }
-    public function set_pourcentagesecu($value){
-    	$this->pourcentagesecu = $value;
-    	}
-    public function set_pourcentagemutuelle($value){
-    	$this->pourcentagemutuelle = $value;
-    }
-    public function set_prix($value){
-    	$this->prix = $value;
-    }
+        public function setNom($nom) {
+            $this->nom = $nom;
+        }
 
+        public function getNumlot() {
+            return $this->numlot;
+        }
+
+        public function setNumlot($numlot) {
+            $this->numlot = $numlot;
+        }
+
+        public function getNomfabriquant() {
+            return $this->nomfabriquant;
+        }
+
+        public function setNomfabriquant($nomfabriquant) {
+            $this->nomfabriquant = $nomfabriquant;
+        }
+
+        public function getDateexpiration() {
+            return $this->dateexpiration;
+        }
+
+        public function setDateexpiration($dateexpiration) {
+            $this->dateexpiration = $dateexpiration;
+        }
+
+        public function getTyperemboursement() {
+            return $this->typeremboursement;
+        }
+
+        public function setTyperemboursement($typeremboursement) {
+            $this->typeremboursement = $typeremboursement;
+        }
+
+        public function getPourcentagesecu() {
+            return $this->pourcentagesecu;
+        }
+
+        public function setPourcentagesecu($pourcentagesecu) {
+            $this->pourcentagesecu = $pourcentagesecu;
+        }
+
+        public function getPourcentagemutuelle() {
+            return $this->pourcentagemutuelle;
+        }
+
+        public function setPourcentagemutuelle($pourcentagemutuelle) {
+            $this->pourcentagemutuelle = $pourcentagemutuelle;
+        }
+
+        public function getPrix() {
+            return $this->prix;
+        }
+
+        public function setPrix($prix) {
+            $this->prix = $prix;
+        }
 }
 ?>

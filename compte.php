@@ -28,65 +28,24 @@
 	</div>
 </div>
 <div id="wrapper">
-	<div id="welcome" class="wrapper-style1">
-		<?php require "panier.php"; ?>
-		<div class="title">
-			<img src="images/logo.jpg" />
-			<h2>Votre pharmacie à portée de clics</h2>
-	</div>
-	<div id="page" class="container">
-	<!--
-		<div id="sidebar">
-			<div id="sbox1">
-				<div class="title">
-					<h2>Mauris vulputate</h2>
-				</div>
-				<ul class="style2">
-					<li><a href="#">Semper mod quis eget mi dolore</a></li>
-					<li><a href="#">Quam turpis feugiat sit dolor</a></li>
-					<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-					<li><a href="#">Semper mod quisturpis nisi</a></li>
-					<li><a href="#">Consequat etiam lorem phasellus</a></li>
-					<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-					<li><a href="#">Semper mod quisturpis nisi</a></li>
-				</ul>
+    	<div id="welcome" class="wrapper-style1">
+			<?php require "panier.php"; ?>
+			<div class="title">
+				<img src="images/logo.jpg" />
+				<h2>Votre pharmacie à portée de clics</h2>
 			</div>
-			<div id="sbox2">
-				<div class="title">
-					<h2>Integer gravida</h2>
-				</div>
-				<ul class="style2">
-					<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-					<li><a href="#">Ornare in hendrerit in lectus</a></li>
-					<li><a href="#">Semper mod quis eget mi dolore</a></li>
-					<li><a href="#">Quam turpis feugiat sit dolor</a></li>
-					<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-					<li><a href="#">Semper mod quisturpis nisi</a></li>
-					<li><a href="#">Consequat etiam lorem phasellus</a></li>
-				</ul>
-			</div>
-		</div>
-		-->
-		
-		<div id="content">
-			<?php require "form_compte.php"; ?>
-	</div>
-</div>
-</div>
-<div id="footer" class="container">
+    	</div>
+        <div id="page" class="container">
+                        <div id="content">
+                                <?php require "form_compte.php"; ?>
+                </div>
+        </div>
+    </div>
+    <div id="footer" class="container">
 		<div>
 			<h2>DRUGSTORE</h2>
 			<span class="byline">Votre pharmacie à portée de clics.</span> </div>
-		<!--
-		<ul class="contact">
-			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
-			<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-			<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-		</ul>
-		-->
-		</div>
+    </div>
 </div>
 </body>
 </html>

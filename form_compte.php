@@ -1,8 +1,8 @@
-<form name="form_add" id="form_add" method="post" action="page_de_traitement.php">
+<form name="form_add" id="form_add" method="post" action="scripts/connexion.php">
+    <input type="hidden" name="id_form" value="2">
                 <h1>Création de votre compte client sur notre site</h1>
-
   <h3><br>
-  Adresse de facturation </h3>
+  Informations Client : </h3>
                                                   <table border="0" cellpadding="4" cellspacing="0" style="width:100%;">
                             <tbody><tr>
                               <td width="20">&nbsp;</td>
@@ -250,15 +250,15 @@
                                                                     </select></td>
                             </tr>
                             <tr>
-                              <td colspan="3"><br>
-                                <strong>
-                        <input name="adresse_livraison" type="checkbox" id="adresse_livraison" value="1">
-                        cochez cette case si vous souhaitez indiquer une adresse de livraison différente</strong>                      </td>
-                            </tr>
-                            <tr>
                               <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
+                              <td>Cotisation mutuelle <span class="asterisque">*</span></td>
+                              <td>                                  <select name="id_cotisation" id="id_cotisation">
+                                                                        <option value="100">100</option>
+                                                                        <option value="150">150</option>
+                                                                        <option value="200">200</option>
+                                                                        <option value="300">300</option>
+                                                                        <option value="400">400</option>
+                                                                    </select></td>
                             </tr>
                             <tr>
                               <td>&nbsp;</td>
@@ -294,14 +294,9 @@
                             </tr>
                             <tr>
                               <td>&nbsp;</td>
-                              <td colspan="2"><input type="checkbox" name="newsletter" id="newsletter">
-                                je souhaite m'inscrire à la newsletter</td>
-                              </tr>
-                            <tr>
-                              <td>&nbsp;</td>
                               <td><input name="id_client" type="hidden" id="id_client" value="">
                                   <input name="date_crea" type="hidden" id="date_crea" value=""></td>
-                              <td><input name="gestion_compte_add_form" type="button" id="gestion_compte_add_form" value="Soumettre ma demande" class="button medium white"></td>
+                              <td><input name="gestion_compte_add_form" type="submit" id="gestion_compte_add_form" value="Soumettre ma demande" class="button medium white"></td>
                             </tr>
     </tbody></table>
 </form>
