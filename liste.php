@@ -5,13 +5,30 @@
 			<span class="byline">Votre pharmacie à portée de clics.</span>
 			<br/>
 		
+                        <?php 
+                        
+                            include_once ('M/produit_DAO.php');
+                        
+                            $produitDAO = new Produit_DAO($_SESSION['user']);
+                            $currentPage = $_SERVER['SCRIPT_NAME'];
+                            $list = array();
+                            if($currentPage == '/drugstore/pharmacie.php'){
+                                $list = $produitDAO->getAllPharma();
+                            } else if ($currentPage == "/drugstore/parapharmacie.php"){
+                                $list = $produitDAO->getAllParapharma();
+                            }
+                            if($list == null){
+                                echo 'nothing here';
+                            }
+                            foreach ($list as $produit) {
+                        ?>
 			<div class="produit">
 				<table>
 					<tr>
-						<td><img src="images/pic01.jpg" alt="" /></td>
+						<td><img src=<?php echo 'images/'.$produit->getNom()?> alt="" /></td>
 					</tr>
 					<tr>
-						<td><h2>Paralyoc</h2></td>
+						<td><h2><?php echo $produit->getNom()?></h2></td>
 					</tr>
 					<tr>
 						<td>Prix</td>
@@ -21,6 +38,7 @@
 					</tr>
 				</table>
 			</div>
+                        <?php } ?>
 		
 	</div>
 </div>

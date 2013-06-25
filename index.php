@@ -11,29 +11,8 @@
 <![endif]-->
 </head>
 <body>
-<div id="header" class="container">
-	<div id="login">
-		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
-		<?php
-			if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
-				require "logged.php";
-			}
-			else{
-				require "login.php";
-			}?>
-	</div>
-	<div id="menu">
-		<ul>
-			<li class="current_page_item"><a href="#" accesskey="1" title="">Home</a></li>
-			<li><a href="#" accesskey="2" title="">Pharmacie</a></li>
-			<li><a href="#" accesskey="3" title="">Parapharmacie</a></li>
-			<li><a href="#" accesskey="4" title="">Mon Compte</a></li>
-			<li><a href="#" accesskey="5" title="">Contact</a></li>
-		</ul>
-	</div>
-</div>
+<?php require "header.php"; ?>
 <div id="wrapper">
-
 	<div id="welcome" class="wrapper-style1">
 	<?php require "panier.php"; ?>
 		<div class="title">
@@ -49,15 +28,6 @@
 		
 			<h2>DRUGSTORE</h2>
 			<span class="byline">Votre pharmacie à portée de clics.</span> </div>
-		<!--
-		<ul class="contact">
-			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
-			<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-			<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-		</ul>
-		-->
 	</div>
 </div>
 </body>

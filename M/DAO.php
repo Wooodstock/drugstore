@@ -49,7 +49,7 @@
         }
 
     public function testConnection(){
-		$reponse = $this->conn->query('SELECT * FROM FOURNISSEUR');
+            $reponse = $this->conn->query('SELECT * FROM FOURNISSEUR');
     
 	    while($donnee = $reponse->fetch()){
         	echo $donnee['NOM_FOURNISSEUR'].'<br>';
@@ -67,8 +67,7 @@
             $this->conn = $conn;
         }
         
-        static function getDAO($currentUser){
-        	echo $currentUser;
+        public static function getDAO($currentUser){
             if($currentUser == "pharmacien"){
                 return new DAO('pharmacien', 'pharmacien');
             } else if($currentUser == 'fournisseur'){
@@ -76,7 +75,7 @@
             } else if($currentUser == 'preparateur'){
                 return new DAO('preparateur', 'preparateur');
             } else{
-                return new DAO('pharmaweb', 'admin');
+                return new DAO('PHARMAWEB', 'admin');
             }
         }
 }

@@ -10,7 +10,7 @@
  * @author Bertrand
  */
 
-include('produit.php');
+include_once('produit.php');
 
 class Parapharma extends Produit {
     

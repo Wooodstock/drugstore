@@ -36,11 +36,9 @@ class Client_DAO {
         $donnee = $reponse->fetch();
         if($donnee != null){
             $client = new Client($donnee['ID_CLIENT'], $donnee['NOM_CLIENT'], $donnee['STATUT_CLIENT'], $donnee['ADRESSE_CLIENT'], $donnee['TELEPHONE_CLIENT'], $donnee['MODE_REMB_CLIENT'], $donnee['COTISATION_CLIENT'], $donnee['LOGIN_CLIENT'], $donnee['PASSWORD_CLIENT']);
-            echo 'Client Found : '.$client->getNom();
             $this->DAO->switchConn('client', 'client');
             return $client;
         } else {
-            echo 'No Client Found ';
             return null;
         }   
     }

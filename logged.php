@@ -1,10 +1,4 @@
- <html>
-<head>
-<title>Espace membre</title>
-</head>
- 
-<body>
-Bienvenue<?php echo htmlentities(trim($_SESSION['login'])); ?>!<br />
-<a href="deconnexion.php">Déconnexion</a>
-</body>
-</html> 
+<div id="logged">
+    <h3>Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?></h3>
+    <u><a href="deconnexion.php">Déconnexion</a></u>
+</div>

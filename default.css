@@ -293,6 +293,10 @@ ul.contact li a.icon-rss:before
 	background: #FFF;
 }
 
+#logged{
+    margin : 3em 0em;
+}
+
 #featured-wrapper
 {
 	overflow:  hidden;

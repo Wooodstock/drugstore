@@ -5,6 +5,8 @@ include_once('../M/pharmacien_DAO.php');
 include_once('../M/preparateur_DAO.php');
 include_once('../C/ctrlPanier.php');
 
+@session_start();
+
 class WFconnexion{
 	
 	private $client;

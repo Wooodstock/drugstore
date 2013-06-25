@@ -73,9 +73,4 @@ class Produit_DAO {
         }  
     }
 }
-
-
-    $produit_DAO = new Produit_DAO('client');
-    echo $produit_DAO->getProduitById(3)->getNom();
-
 ?>
