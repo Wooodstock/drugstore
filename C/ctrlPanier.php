@@ -49,15 +49,15 @@ Class CtrlPanier{
     }
 	
 	public function ajouter($produit){
-	
+		
 		$isNew = true;
 		//Recherche si le produit est deja dans le panier retourne l'index ou false
 		foreach($this->items as $item){
-			if($item->getProduit()  == $produit){
+			if($item->getProduit()->getId() == $produit->getId()){
 				//Produit trouver
 				$isNew = false;
 				$newQtt = $item->getQuantite() + 1;
-				$item->setQuantite($newQtt);//PROBLEME DE DROIT!!!!
+				$item->setQuantite($newQtt);
 				break;
 			}
 		}
@@ -73,7 +73,7 @@ Class CtrlPanier{
 		$isNew = true;
 		//Recherche si le produit est deja dans le panier retourne l'index ou false
 		foreach($this->items as $item){
-			if($item->getProduit()  == $produit){
+			if($item->getProduit()->getId()  == $produit->getId()){
 				//Produit trouver
 				$isNew = false;
 				if($item->getQuantite() > 1){
@@ -99,7 +99,7 @@ Class CtrlPanier{
 		$tmp = $this->items;
 		
 		for($i = 0; $i < count($this->items); $i++){
-			if($item->getProduit()  != $produit){
+			if($item->getProduit()->getId()  != $produit->getId()){
 				$newItem = new Item($items[i]->getProduit(), $items[i]->getQuantite()); 
 				array_push($tmp, $newItem);
 			}

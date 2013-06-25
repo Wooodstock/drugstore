@@ -1,10 +1,9 @@
 <?php
-include('../M/client_DAO.php');
-include('../M/fournisseur_DAO.php');
-include('../M/pharmacien_DAO.php');
-include('../M/preparateur_DAO.php');
-
-@session_start();
+include_once('../M/client_DAO.php');
+include_once('../M/fournisseur_DAO.php');
+include_once('../M/pharmacien_DAO.php');
+include_once('../M/preparateur_DAO.php');
+include_once('../C/ctrlPanier.php');
 
 class WFconnexion{
 	
@@ -25,14 +24,20 @@ class WFconnexion{
                 // On cherche l'utilisateur dans les clients
 		$this->client  = $this->clientDAO->getUser($login, $password);
 		if($this->client != null){
+		echo 'user found';
 			$_SESSION['login'] = $this->client->getLogin();
                         $_SESSION['user'] = 'client';
+                        
+            //Creation du panier
+            $_SESSION['panier'] = new CtrlPanier();
+
 			return true;
 		}
                 
                 // On cherche l'utilisateur dans les fournisseurs
                 $this->fournisseur  = Fournisseur_DAO::getInstance()->getFournisseur($login, $password);
                 if($this->fournisseur != null){
+                echo 'fournisseur found';
                         $_SESSION['login'] = $this->fournisseur->getLogin();
                         $_SESSION['user'] = 'fournisseur';
                         return true;
@@ -41,6 +46,7 @@ class WFconnexion{
                 // On cherche l'utilisateur dans les pharmaciens
                 $this->pharmacien  = Pharmacien_DAO::getInstance()->getPharmacien($login, $password);
                 if($this->pharmacien != null){
+                echo 'pharmacien found';
                         $_SESSION['login'] = $this->pharmacien->getLogin();
                         $_SESSION['user'] = 'pharmacien';
                         return true;
@@ -49,6 +55,7 @@ class WFconnexion{
                 // On cherche l'utilisateur dans les preparateurs
                 $this->preparateur = Preparateur_DAO::getInstance()->getPreparateur($login, $password);
                 if($this->preparateur != null){
+                echo 'preparateur found';
                     $_SESSION['login'] = $this->preparateur->getLogin();
                     $_SESSION['user'] = 'preparateur';
                     return true;

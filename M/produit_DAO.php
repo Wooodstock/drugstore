@@ -10,9 +10,9 @@
  *
  * @author Bertrand
  */
-include('parapharma.php');
-include('pharma.php');
-include('DAO.php');
+include_once('parapharma.php');
+include_once('pharma.php');
+include_once('DAO.php');
 
 class Produit_DAO {
     
@@ -68,17 +68,14 @@ class Produit_DAO {
             $parapharma = new Parapharma($donnee['ID_PRODUIT'], $donnee['NOM_PRODUIT'], $donnee['NUM_LOT_PRODUIT'], $donnee['NOM_FABRIQUANT_PRODUIT'], $donnee['DATE_EXPIRATION_PRODUIT'], $donnee['TYPE_REMBOURSEMENT_PRODUIT'], $donnee['PRIX_PRODUIT'], $donnee['STOCK_PRODUIT'], $donnee['LIB_CLASSE_PHARMA']);
             return $parapharma;
         } else { // on retourne null si rien trouvé
+        	echo 'null ';
             return null;
         }  
     }
 }
 
-/* TEST 
- * 
- * 
-    $DAO = new DAO('PHARMAWEB', 'admin');
-    $DAO->connect();
-    $produit_DAO = new Produit_DAO($DAO);
-    echo $produit_DAO->getProduitById(5)->getNom();
- */
+
+    $produit_DAO = new Produit_DAO('client');
+    echo $produit_DAO->getProduitById(3)->getNom();
+
 ?>

@@ -1,10 +1,11 @@
 
 <?php
+include_once('../C/WFconnexion.php');
+include_once('../C/WFcompte.php');
+include_once('../M/produit_DAO.php');
 
 @session_start();
 
-include('../C/WFconnexion.php');
-include('../C/WFcompte.php');
 
 switch($_POST['id_form']) {
     case 1:
@@ -27,7 +28,7 @@ function connexion() {
     $test = $WFConnexion->connect($_POST['login'], $_POST['pass']);
     if($test){
             //header('index.php');
-            echo 'CONNEXION SUCCEED in '.$_SESSION['user'];
+            echo 'CONNEXION SUCCEED in '.$_SESSION['user'];         
     }
     else{
             echo 'CONNEXION FAILED'; 
@@ -53,14 +54,31 @@ function inscriptionClient() {
 function traitementPanier(){
 		
 	if(isset($_POST['plus'])){
-			//$produit = GET BY ID HERE id = $_POST['d_produid'];
+	
+			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
+			
+			$produitDAO = new Produit_DAO($_SESSION['user']);
+			//$produit = new Produit(6,"TESTDELAMORTQUITUE","","","","","","", "");
+			$produit = $produitDAO->getProduitById($_POST['id_produit']);
+			
+			echo ('PODUIT FOUND -> ' .$produit->getNom());
 			
 			$_SESSION['panier']->ajouter($produit);
+			
+			header('Location: ../index.php');
 	}
 	else if(isset($_POST['moin'])){
-			//$produit = GET BY ID HERE id = $_POST['d_produid'];
+			
+			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
+			
+			$produitDAO = new Produit_DAO($_SESSION['user']);
+			$produit = $produitDAO->getProduitById($_POST['id_produit']);
+			
+			echo ('PODUIT FOUND -> ' .$produit->getNom());
 			
 			$_SESSION['panier']->supprimer($produit);
+			
+			header('Location: ../index.php');
 	}
 }
 
