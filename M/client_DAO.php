@@ -44,6 +44,17 @@ class Client_DAO {
             return null;
         }   
     }
+    
+    public function insert($client){
+        $this->conn = $this->DAO->connect();
+        $reponse = $this->conn->prepare('INSERT INTO "PHARMAWEB"."CLIENT" (NOM_CLIENT, ADRESSE_CLIENT, TELEPHONE_CLIENT, MODE_REMB_CLIENT, COTISATION_CLIENT, LOGIN_CLIENT, PASSWORD_CLIENT) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $reponse->execute(array($client->getNom(),$client->getAdresse(), $client->getTelephone(), $client->getMode_remboursement(), $client->getCotisation(), $client->getLogin(), $client->getPassword()));
+        if($reponse){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>
