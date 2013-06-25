@@ -29,6 +29,7 @@
 </div>
 <div id="wrapper">
 	<div id="welcome" class="wrapper-style1">
+		<?php require "panier.php"; ?>
 		<div class="title">
 			<img src="images/logo.jpg" />
 			<h2>Votre pharmacie à portée de clics</h2>
@@ -71,49 +72,6 @@
 			<?php require "form_compte.php"; ?>
 	</div>
 </div>
-	<!--
-<div id="featured-wrapper">
-	<div id="featured" class="container">
-
-		<div id="box1">
-			<div>
-				<h2>Nulla luctus eleifend</h2>
-			</div>
-			<ul class="style1">
-				<li class="first"><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Mauris vel.veroeros nisl feugiat lorem</a></li>
-				<li><a href="#">Sed in volutpat nisl mauris tempus. nulla</a></li>
-				<li><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Blandit feugiat lorem diam nullam dolore</a></li>
-			</ul>
-		</div>
-		<div id="box2">
-			<div>
-				<h2>Maecenas luctus lectus</h2>
-			</div>
-			<ul class="style1">
-				<li class="first"><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Mauris vel.veroeros nisl feugiat lorem</a></li>
-				<li><a href="#">Sed in volutpat nisl mauris tempus. nulla</a></li>
-				<li><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Blandit feugiat lorem diam nullam dolore</a></li>
-			</ul>
-		</div>
-		<div id="box3">
-			<div>
-				<h2>Etiam posuere augue</h2>
-			</div>
-			<ul class="style1">
-				<li class="first"><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Mauris vel.veroeros nisl feugiat lorem</a></li>
-				<li><a href="#">Sed in volutpat nisl mauris tempus. nulla</a></li>
-				<li><a href="#">Dolore feugiat consequat et amet nullam</a></li>
-				<li><a href="#">Blandit feugiat lorem diam nullam dolore</a></li>
-			</ul>
-		</div>
-
-	</div>
-	-->
 </div>
 <div id="footer" class="container">
 		<div>
@@ -128,7 +86,7 @@
 			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
 		</ul>
 		-->
-	</div>
+		</div>
 </div>
 </body>
 </html>

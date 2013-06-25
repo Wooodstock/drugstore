@@ -34,6 +34,7 @@
 </div>
 <div id="wrapper">
 	<div id="welcome" class="wrapper-style1">
+		<?php require "panier.php"; ?>
 		<div class="title">
 			<img src="images/logo.jpg" />
 			<h2>Votre pharmacie à portée de clics</h2>
@@ -61,6 +62,7 @@
 			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
 		</ul>
 		-->
+	</div>
 	</div>
 </div>
 </body>

@@ -111,6 +111,7 @@ hr
 
 .title
 {
+	float : left;
 	margin: 0 0 1em 0;
 	text-align: center;
 }
@@ -258,9 +259,31 @@ ul.contact li a.icon-rss:before
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #ffffff;
-}.button:active {
+}
+.button:active {
 	position:relative;
 	top:1px;
+}
+
+.buttonpanier {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:transparent;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:20px;
+	font-weight:normal;
+	width : 15px;
+	padding : 0px 0px 6px 6px;
+	height : 15px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
 }
 
 /** WRAPPER */
@@ -450,7 +473,12 @@ ul.contact li a.icon-rss:before
 #menu .current_page_item a
 {
 }
-
+/** PANIER */
+#panier
+{
+	float : left;
+	width : 250px;
+}
 /** PAGE */
 
 #page

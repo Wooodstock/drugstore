@@ -33,16 +33,20 @@
 	</div>
 </div>
 <div id="wrapper">
+
 	<div id="welcome" class="wrapper-style1">
+	<?php require "panier.php"; ?>
 		<div class="title">
 			<img src="images/logo.jpg" />
 			<h2>Votre pharmacie à portée de clics</h2>
+		</div>
 	</div>
 	
 	<?php require "liste.php"; ?>
 	
 	<div id="footer" class="container">
 		<div>
+		
 			<h2>DRUGSTORE</h2>
 			<span class="byline">Votre pharmacie à portée de clics.</span> </div>
 		<!--
