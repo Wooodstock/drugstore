@@ -96,11 +96,11 @@ Class CtrlPanier{
 	
 	private function delete($produit){
 		$tmp = array();
-		$tmp = $this->items;
+		//$tmp = $this->items;
 		
-		for($i = 0; $i < count($this->items); $i++){
-			if($item->getProduit()->getId()  != $produit->getId()){
-				$newItem = new Item($items[i]->getProduit(), $items[i]->getQuantite()); 
+		foreach($this->items as $item){
+			if($item->getProduit()->getId() != $produit->getId()){
+				$newItem = $item; 
 				array_push($tmp, $newItem);
 			}
 		}
