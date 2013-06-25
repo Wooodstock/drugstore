@@ -58,7 +58,6 @@ function traitementPanier(){
 			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
 			
 			$produitDAO = new Produit_DAO($_SESSION['user']);
-			//$produit = new Produit(6,"TESTDELAMORTQUITUE","","","","","","", "");
 			$produit = $produitDAO->getProduitById($_POST['id_produit']);
 			
 			echo ('PODUIT FOUND -> ' .$produit->getNom());
@@ -67,7 +66,7 @@ function traitementPanier(){
 			
 			header('Location: ../index.php');
 	}
-	else if(isset($_POST['moin'])){
+	else if(isset($_POST['moins'])){
 			
 			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
 			

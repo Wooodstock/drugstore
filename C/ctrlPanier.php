@@ -28,15 +28,6 @@ Class Item{
 }
 
 Class CtrlPanier{
-
-
-	/*
-	
-		Check si la comparaison obj1 == obj2 works
-		Ex: $item->produit  == $produit
-	
-	
-	*/
 	
 	private $items;
 	
@@ -96,11 +87,11 @@ Class CtrlPanier{
 	
 	private function delete($produit){
 		$tmp = array();
-		$tmp = $this->items;
+		//$tmp = $this->items;
 		
-		for($i = 0; $i < count($this->items); $i++){
-			if($item->getProduit()->getId()  != $produit->getId()){
-				$newItem = new Item($items[i]->getProduit(), $items[i]->getQuantite()); 
+		foreach($this->items as $item){
+			if($item->getProduit()->getId() != $produit->getId()){
+				$newItem = $item; 
 				array_push($tmp, $newItem);
 			}
 		}
@@ -115,7 +106,7 @@ Class CtrlPanier{
 		$prixTotal = 0;
 		
 		foreach($this->items as $item){
-			$prixTotal =+ $item->produit->prix;
+			$prixTotal = $prixTotal + ($item->getProduit()->getPrix() * $item->getQuantite());
 		}
 		return $prixTotal;
 	}

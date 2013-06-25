@@ -25,21 +25,24 @@
 		
 	?>
 	
-<form method="post" action="scripts/traitements.php">
-<input type="hidden" name="id_form" value="3">
-	<table>
+<table>
 <?php
-		foreach($_SESSION['panier']->get_items() as $item){?>
-			<tr>
-				<td><input type="submit" name="moins" value="-" class="buttonpanier"></td>
-				<td><?php echo $item->getQuantite();?></td>
-				<td><input type="submit" name="plus" value="+" class="buttonpanier"></td>
-				<td><?php echo $item->getProduit()->getNom();?></td>
-				<td><?php echo $item->getProduit()->getPrix();?></td>
-				<td><?php echo $item->getProduit()->getId();?></td>
-			</tr>
-			<input type="hidden" name="id_produit" value=<?php echo $item->getProduit()->getId(); ?> ><?php
-		}?>
-	</table>
-</form>
+	foreach($_SESSION['panier']->get_items() as $item){?>
+		<form method="post" action="scripts/traitements.php">
+			<input type="hidden" name="id_form" value="3">
+				<tr>
+					<td><input type="submit" name="moins" value="-" class="buttonpanier"></td>
+					<td><?php echo $item->getQuantite();?></td>
+					<td><input type="submit" name="plus" value="+" class="buttonpanier"></td>
+					<td><?php echo $item->getProduit()->getNom();?></td>
+					<td><?php echo ($item->getProduit()->getPrix()) *  $item->getQuantite();?></td>
+					<td>€</td>
+				</tr>
+			<input type="hidden" name="id_produit" value=<?php echo $item->getProduit()->getId(); ?> >
+		</form><?php
+	}?>
+</table>
+
+<b>Total  <?php echo  $_SESSION['panier']->getPrixTotal(); ?>  €</b>
+
 </div>
