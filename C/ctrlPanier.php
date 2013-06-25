@@ -39,7 +39,12 @@ Class CtrlPanier{
 	
 	*/
 	
-	private $items = array();
+	private $items;
+	
+	public function __construct($produit, $quantite);
+	{
+		$this->items = new array();
+	}
 	
 	public function ajouter($produit, $quantite){
 	
