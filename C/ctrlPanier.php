@@ -5,25 +5,24 @@ Class Item{
 	private $produit;
 	private $quantite;
 	
-	public function __construct($produit, $quantite);
-	{
+	public function __construct($produit, $quantite){
 		$this->produit = $produit;
 		$this->quantite = $quantite;
 	}
 	
 	
-	public function set_produit($value){
+	public function setProduit($value){
     	$this->produit = $value;
     }
-    public function set_quantite($value){
+    public function setQuantite($value){
     	$this->quantite = $value;
     }
 	
-    public function get_produit(){
-    	return $produit;
+    public function getProduit(){
+    	return $this->produit;
     }
-    public function get_quantite(){
-    	return $quantite;
+    public function getQuantite(){
+    	return $this->quantite;
     }
 	
 }
@@ -41,54 +40,49 @@ Class CtrlPanier{
 	
 	private $items;
 	
-	public function __construct($produit, $quantite);
-	{
-		$this->items = new array();
+	public function __construct(){
+		$this->items = array();
 	}
 	
-	public function ajouter($produit, $quantite){
+	public function get_items(){
+    	return $this->items;
+    }
+	
+	public function ajouter($produit){
 	
 		$isNew = true;
 		//Recherche si le produit est deja dans le panier retourne l'index ou false
-		foreach($items as $item){
-			if($item->produit  == $produit){
+		foreach($this->items as $item){
+			if($item->getProduit()  == $produit){
 				//Produit trouver
 				$isNew = false;
-				$item->quantite++;//PROBLEME DE DROIT!!!!
+				$newQtt = $item->getQuantite() + 1;
+				$item->setQuantite($newQtt);//PROBLEME DE DROIT!!!!
 				break;
 			}
 		}
 		
 		//Ajout d'un nouvelle item si il est nouveau
 		if($isNew){
-			$newItem = new Item($produit, $quantite); 					
+			$newItem = new Item($produit, 1); 
+			array_push($this->items, $newItem);					
 		}	
 	}
 	
-	
-	
-	public function supprimer($produit, $quantite){
-		$tmp = array();
-		$tmp = $this->items;
-		
-		for($i = 0; $i < count($items); $i++){
-			if($item->produit  != $produit){
-				$newItem = new Item($produit, $quantite); 
-				array_push($tmp, $newItem);
-			}
-		}
-		
-		$this->items = $tmp;
-	}
-	
-	public function modifier($produit, $quantite){
+	public function supprimer($produit){
 		$isNew = true;
 		//Recherche si le produit est deja dans le panier retourne l'index ou false
-		foreach($items as $item){
-			if($item->produit  == $produit){
+		foreach($this->items as $item){
+			if($item->getProduit()  == $produit){
 				//Produit trouver
 				$isNew = false;
-				$item->quantite = $quantite;
+				if($item->getQuantite() > 1){
+					$newQtt = $item->getQuantite() - 1;
+					$item->setQuantite($newQtt);
+				}
+				else{
+					$this->delete($item->getProduit());
+				}
 				break;
 			}
 		}
@@ -98,11 +92,29 @@ Class CtrlPanier{
 		}	
 	}
 	
+	
+	
+	private function delete($produit){
+		$tmp = array();
+		$tmp = $this->items;
+		
+		for($i = 0; $i < count($this->items); $i++){
+			if($item->getProduit()  != $produit){
+				$newItem = new Item($items[i]->getProduit(), $items[i]->getQuantite()); 
+				array_push($tmp, $newItem);
+			}
+		}
+		
+		$this->items = $tmp;
+	}
+	
+
+	
 	public function getPrixTotal()
 	{
 		$prixTotal = 0;
 		
-		foreach($items as $item){
+		foreach($this->items as $item){
 			$prixTotal =+ $item->produit->prix;
 		}
 		return $prixTotal;

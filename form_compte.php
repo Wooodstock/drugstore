@@ -1,4 +1,4 @@
-<form name="form_add" id="form_add" method="post" action="scripts/connexion.php">
+<form name="form_add" id="form_add" method="post" action="scripts/traitements.php">
     <input type="hidden" name="id_form" value="2">
                 <h1>Création de votre compte client sur notre site</h1>
   <h3><br>
