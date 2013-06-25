@@ -28,15 +28,6 @@ Class Item{
 }
 
 Class CtrlPanier{
-
-
-	/*
-	
-		Check si la comparaison obj1 == obj2 works
-		Ex: $item->produit  == $produit
-	
-	
-	*/
 	
 	private $items;
 	
@@ -115,7 +106,7 @@ Class CtrlPanier{
 		$prixTotal = 0;
 		
 		foreach($this->items as $item){
-			$prixTotal =+ $item->produit->prix;
+			$prixTotal = $prixTotal + ($item->getProduit()->getPrix() * $item->getQuantite());
 		}
 		return $prixTotal;
 	}

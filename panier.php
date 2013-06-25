@@ -35,12 +35,14 @@
 					<td><?php echo $item->getQuantite();?></td>
 					<td><input type="submit" name="plus" value="+" class="buttonpanier"></td>
 					<td><?php echo $item->getProduit()->getNom();?></td>
-					<td><?php echo $item->getProduit()->getPrix();?></td>
-					<td><?php echo $item->getProduit()->getId();?></td>
+					<td><?php echo ($item->getProduit()->getPrix()) *  $item->getQuantite();?></td>
+					<td>€</td>
 				</tr>
 			<input type="hidden" name="id_produit" value=<?php echo $item->getProduit()->getId(); ?> >
 		</form><?php
 	}?>
 </table>
+
+<b>Total  <?php echo  $_SESSION['panier']->getPrixTotal(); ?>  €</b>
 
 </div>
