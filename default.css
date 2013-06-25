@@ -241,34 +241,26 @@ ul.contact li a.icon-rss:before
 {
 	background: #F2600B;
 }
-
-.button
-{
-	display: inline-block;
-	margin-top: 2em;
-	padding: 1em 3em;
-	background: #C4376B;
-	border-radius: 7px;
-	-moz-transition: opacity 0.25s ease-in-out;
-	-webkit-transition: opacity 0.25s ease-in-out;
-	-o-transition: opacity 0.25s ease-in-out;
-	-ms-transition: opacity 0.25s ease-in-out;
-	transition: opacity 0.25s ease-in-out;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 0.90em;
-	color: #FFF;
-}
-
-.button:hover
-{
-	background: #D64077;
-}
-
-.button:active
-{
-	background: #BD3567;
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:transparent;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:20px;
+	font-weight:normal;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.button:active {
+	position:relative;
+	top:1px;
 }
 
 /** WRAPPER */
@@ -483,7 +475,9 @@ ul.contact li a.icon-rss:before
 	border-style:groove;
 	float: left;
 }
-
+#page .produit .button
+{
+}
 #page .produit h2
 {
 	font-size: 1.8em;
