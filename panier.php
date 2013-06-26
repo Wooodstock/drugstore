@@ -20,15 +20,14 @@
 		
 		$_SESSION['panier']->supprimer($p1);
 		//*/
-?>
 		
-		
+	if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
+		foreach($_SESSION['panier']->get_items() as $item){?>
+				
 <div id="panier">
 	<h1>Panier</h1>	
 	<table>
-	<?php
-	if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
-		foreach($_SESSION['panier']->get_items() as $item){?>
+
 			<form method="post" action="scripts/traitements.php">
 				<input type="hidden" name="id_form" value="3">
 					<tr>
