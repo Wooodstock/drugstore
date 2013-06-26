@@ -14,7 +14,7 @@ class WFconnexion{
 	
 	private $client;
     private $fournisseur;
-    private $pharmacien
+    private $pharmacien;
     private $preparateur;
 	private $clientDAO;
 	private $login;

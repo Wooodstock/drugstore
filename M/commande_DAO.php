@@ -24,6 +24,7 @@ class Commande_DAO {
     
     public function insertCommande($panier, $idClient){
         
+        /*
         $commandePara = new CommandePara(false);
         $commandePharma = new CommandePharma();
         
@@ -33,7 +34,7 @@ class Commande_DAO {
             } else if(is_a($item->getProduit(), 'Parapharma')){
                 array_push($commandePara->getListPharma(), $item);
             }
-        }
+        }*/
         
         $commandeClient = new CommandeClient($commandePara, $commandePharma, $date, $etat);
         
