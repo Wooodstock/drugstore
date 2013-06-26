@@ -8,9 +8,9 @@ class WFcommande{
     	return $commande;
     }
 	
-	publiv function createCommande($date){
+	public function createCommande($date){
 	
-		$commandePara = new CommandePara(false);
+        $commandePara = new CommandePara(false);
         $commandePharma = new CommandePharma();
         
         foreach ($panier->getItems() as $item){
@@ -21,7 +21,7 @@ class WFcommande{
             }
         }
         
-        $this->commande = new CommandeClient($commandePara, $commandePharma, $date, 'EN COUR');
+        $this->commande = new CommandeClient($commandePara, $commandePharma, $date, 'EN COURS');
         
         return $this->commande;
         
