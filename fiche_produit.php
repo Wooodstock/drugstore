@@ -23,6 +23,7 @@
             @session_start();
             include_once ('M/produit_DAO.php');
             include_once('M/pharma.php');
+            include_once('M/parapharma.php');
 
             $produitDAO;
             if (isset($_SESSION['user']) && $_SESSION['user'] != 'FAILED'){
@@ -46,7 +47,13 @@
                             <?php echo 'Type : '.$produit->getLibClassePharma().'<br/>'?>
                             <?php echo 'Stock : '.$produit->getStock() > 5 ? 'Epuisé' : 'En stock'.'<br/>'?>
 			</span><br/><br/><br/>
-                        <a class="button" >Acheter</a>
+			
+<form method="post" action="scripts/traitements.php">
+	<input type="hidden" name="id_form" value="3">
+	<input type="hidden" name="id_produit" value="<?php echo $produit->getId();?>">
+	<input type="submit" name="plus" value="Acheter" class="button">
+</form>
+
 	</div>
 	
 	<div id="footer" class="container">
