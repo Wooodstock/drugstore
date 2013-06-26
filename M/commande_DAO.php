@@ -12,6 +12,9 @@
  */
 
 include_once('DAO.php');
+include_once('commandeClient.php');
+include_once('commandePara.php');
+include_once('commandePharma.php');
 
 class Commande_DAO {
     
@@ -22,44 +25,75 @@ class Commande_DAO {
         $this->DAO = DAO::getDAO($currentUser);
     }
     
-    public function insertCommande($DAO){
+    public function insertCommande($commande){
 
-//        $commandePara = new CommandePara(false);
-//        $commandePharma = new CommandePharma();
-//        
-//        foreach ($panier->getItems() as $item){
-//            if(is_a($item->getProduit(), 'Pharma')){
-//                array_push($commandePharma->getListPharma(), $item);
-//            } else if(is_a($item->getProduit(), 'Parapharma')){
-//                array_push($commandePara->getListPharma(), $item);
-//            }
-//        }
-//        
-//        $commandeClient = new CommandeClient($commandePara, $commandePharma, $date, $etat);
-//      
+        $commandePara = $commande->getCommandePara();
+        $commandePharma = $commande->getCommandePharma();
+        $etat = $commande->getEtat();
+        $idClient = $commande->getIdClient();
+        $this->conn = $DAO->connect();
+
+        $reponse = $this->conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , ?, ?, ?, ?)');
+        $reponse->execute(array( $etat, $idClient, 0, 0));
         
-        try{
-            $date = '20/12/2012';
-            $etat = "en cours";
-            $idclient = 1;
-
-            $this->conn = $DAO->connect();
+        // retourne id commande
+        $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE) FROM COMMANDE');
+        $reponse->execute();
+        $donnee = $reponse->fetch();
+        $idCommande = $donnee['ID_COMMANDE'];
+        
+        // si la commande de parapharmacie est pleine 
+        if($commandePara != null){
+            $listePara = $commandePara->getListePara();
+            $valide = $commandePara->getIsValide();
             
-            $reponse = $this->conn->prepare('INSERT INTO "PHARMAWEB"."COMMANDE" (DATE_COMMANDE, ETAT_COMMANDE, ID_CLIENT) VALUES (TO_DATE(?, "DD/MM/RR"), ?, ?)');
-
-            //$reponse = $this->conn->prepare('select * from commande');
-//            $reponse->bindParam(1, $date, PDO::PARAM_STR, 200);
-//            $reponse->bindParam(2, $etat, PDO::PARAM_STR, 200);
-//            $reponse->bindParam(3, $idclient, PDO::PARAM_INT);
-            $reponse->execute(array($date, $etat, $idclient));
+            $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Commande_ParaPharma(? , ?)');
+            $reponse->execute(array($valide, $idCommande));
+            
+            
+            // retourne id para
+            $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE_PARAPHARMA) FROM COMMANDE_PARAPHARMA');
+            $reponse->execute();
             $donnee = $reponse->fetch();
-            if($donnee != null){
-                echo 'nice!';
+            $idCommandePara = $donnee['ID_COMMANDE_PARAPHARMA'];
+            
+            // pour chaque item on sauvegarde le produit dans para et la quantité dans avoir
+            foreach ($listePara as $item){
+                $idProduit = $item->getProduit()->getId();
+                $qte = $item->getQuantite();
+                
+                //inseriton avoir
+                $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_avoir(? , ?, ?)');
+                $reponse->execute(array($idProduit, $idCommandePara, $qte));
+                
             }
-            //$reponse->execute();
-        }catch(Exception $e){
-                echo ($e->getMessage());
         }
+        
+        if($commandePharma != null){
+            $listePharma = $commandePharma->getListePharma();
+            
+            $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Commande_Pharma( ?)');
+            $reponse->execute(array( $idCommande));
+            
+            
+            // retourne id pharma
+            $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE_PHARMA) FROM COMMANDE_PHARMA');
+            $reponse->execute();
+            $donnee = $reponse->fetch();
+            $idCommandePharma = $donnee['ID_COMMANDE_PHARMA'];
+            
+            // pour chaque item on sauvegarde le produit dans pharma et la quantité dans avoir2
+            foreach ($listePara as $item){
+                $idProduit = $item->getProduit()->getId();
+                $qte = $item->getQuantite();
+                
+                //inseriton avoir
+                $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_avoir2(? , ?, ?)');
+                $reponse->execute(array($idProduit, $idCommandePharma, $qte));
+            }
+        }
+        
+
     }
 
     //put your code here
@@ -71,8 +105,7 @@ $DAO = new DAO('PHARMAWEB', 'admin');
 $conn = $DAO->connect();
 //$reponse = $conn->prepare('INSERT INTO "PHARMAWEB"."COMMANDE" (DATE_COMMANDE, ETAT_COMMANDE, ID_CLIENT) VALUES (TO_DATE(?, "DD/MM/RR"), ?, ?)');
 
-$reponse = $conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , :etat, :prix, :prix2, :id)');
-$reponse->execute(array( 'etat' => $etat,'id' => $idclient, 'prix' => 12, 'prix2' => 12));
+
 if($reponse){
     echo 'Achievement complete!';
 }
