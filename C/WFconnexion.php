@@ -13,9 +13,9 @@ include_once('../C/ctrlPanier.php');
 class WFconnexion{
 	
 	private $client;
-        private $fournisseur;
-        private $pharmacien;
-        private $preparateur;
+    private $fournisseur;
+    private $pharmacien
+    private $preparateur;
 	private $clientDAO;
 	private $login;
 	private $password;
