@@ -10,6 +10,7 @@
  *
  * @author Bertrand
  */
+include_once('produit.php');
 
 class Pharma extends Produit{
     
