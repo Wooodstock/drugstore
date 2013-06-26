@@ -44,18 +44,33 @@ class Commande_DAO {
         
         // si la commande de parapharmacie est pleine 
         if($commandePara != null){
+            $questionnaires = $commandePara->getQuestionnaires();
+            
             $listePara = $commandePara->getListePara();
             $valide = $commandePara->getIsValide();
             
             $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Commande_ParaPharma(? , ?)');
             $reponse->execute(array($valide, $idCommande));
-            
-            
+
+                        
             // retourne id para
             $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE_PARAPHARMA) FROM COMMANDE_PARAPHARMA');
             $reponse->execute();
             $donnee = $reponse->fetch();
             $idCommandePara = $donnee['ID_COMMANDE_PARAPHARMA'];
+            
+            
+            //Pour chaque question-reponse du questionnaire
+            // on enregistre la réponse avec l'id de la question
+            // et l'id de la commande para
+            
+            foreach($questionnaires as $questionnaire){
+                $idQuestion = $questionnaire->getQuestion()->getId();
+                $reponse = $Questionnaire->getQuestion()->getLibelle();
+                
+                $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Reponse(? , ?, ?)');
+                $reponse->execute(array($reponse, $idQuestion, $idCommandePara ));
+            }
             
             // pour chaque item on sauvegarde le produit dans para et la quantité dans avoir
             foreach ($listePara as $item){
@@ -64,8 +79,7 @@ class Commande_DAO {
                 
                 //inseriton avoir
                 $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_avoir(? , ?, ?)');
-                $reponse->execute(array($idProduit, $idCommandePara, $qte));
-                
+                $reponse->execute(array($idProduit, $idCommandePara, $qte)); 
             }
         }
         
