@@ -13,6 +13,19 @@
 class CommandePara {
     private $listePara = array();
     private $isValide;
+    private $question;
+    
+    
+    public function __construct(){
+    }
+    
+    public function getIsValide(){
+    	return $isValide;
+    }
+    
+    public function setIsValide($value){
+    	$this->isValide = $value;
+    }
     
     function __construct($isValide) {
         $this->isValide = $isValide;
@@ -24,6 +37,14 @@ class CommandePara {
 
     public function setListePara($listePara) {
         $this->listePara = $listePara;
+    }
+    
+    public function getQuestion(){
+	    return $this->question;
+    }
+    
+    public function setQuestion($question){
+	    $this->question = $question;
     }
 
 

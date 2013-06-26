@@ -16,6 +16,14 @@ class CommandeClient {
     private $date;
     private $etat;
     
+    /*ETAT COMMANDE
+    
+    	*EN COURS
+    	*LIVRAISON
+    	*TERMINER
+    
+    */
+    
     function __construct($commandePara, $commandePharma, $date, $etat) {
         $this->commandePara = $commandePara;
         $this->commandePharma = $commandePharma;
