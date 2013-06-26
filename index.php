@@ -27,9 +27,8 @@
         <?php require "liste.php"; ?>
 
         <div id="footer" class="container">
-            <div>
                 <h2>DRUGSTORE</h2>
-                <span class="byline">Votre pharmacie à portée de clics.</span> </div>
+                <span class="byline">Votre pharmacie à portée de clics.</span> 
         </div>
     </div>
 </body>

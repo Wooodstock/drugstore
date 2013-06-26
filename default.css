@@ -111,7 +111,7 @@ hr
 
 .title
 {
-	float : left;
+
 	margin: 0 0 1em 0;
 	text-align: center;
 }
@@ -328,9 +328,8 @@ ul.contact li a.icon-rss:before
 .wrapper-style1
 {
 	overflow: hidden;
-	width: 1200px;
-	margin: 0px auto;
-	padding: 1em 0em 3em 0em;
+	width: auto;
+
 }
 
 .container
@@ -476,6 +475,12 @@ ul.contact li a.icon-rss:before
 
 #menu .current_page_item a
 {
+}
+
+/** LISTE PRODUITS PANIER */
+#listeproduit
+{
+	float : left;
 }
 /** PANIER */
 #panier

@@ -23,7 +23,7 @@ class Commande_DAO {
     }
     
     public function insertCommande($DAO){
-        
+
 //        $commandePara = new CommandePara(false);
 //        $commandePharma = new CommandePharma();
 //        
@@ -37,7 +37,6 @@ class Commande_DAO {
 //        
 //        $commandeClient = new CommandeClient($commandePara, $commandePharma, $date, $etat);
 //      
-        
         
         try{
             $date = '20/12/2012';
