@@ -1,6 +1,7 @@
 <?php
-
-
+include_once('/../M/produit.php');
+include_once('/../M/parapharma.php');
+include_once('/../M/pharma.php');
 
 Class CtrlPanier{
 	

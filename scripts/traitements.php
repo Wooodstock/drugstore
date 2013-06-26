@@ -2,6 +2,8 @@
 <?php
 include_once('../C/ctrlPanier.php');
 include_once('../M/Produit.php');
+include_once('../M/parapharma.php');
+include_once('../M/pharma.php');
 @session_start();
 include_once('../C/WFconnexion.php');
 include_once('../C/WFcompte.php');
@@ -31,10 +33,10 @@ function connexion() {
     $test = $WFConnexion->connect($_POST['login'], $_POST['pass']);
     if($test){
             header('Location: ../index.php'); 
-            //echo 'CONNEXION SUCCEED in '.$_SESSION['user'];         
+            // 'CONNEXION SUCCEED in '.$_SESSION['user'];         
     }
     else{
-            echo 'CONNEXION FAILED'; 
+             echo 'CONNEXION FAILED'; 
     }
 }
 
@@ -45,43 +47,41 @@ function inscriptionClient() {
     $retour = $WFCompte->addClient($_POST['nom'], $_POST['prenom'], $_POST['adresse'], $_POST['adresse2'], $_POST['cp'], $_POST['ville'], 'FRANCE', $_POST['id_cotisation'], $_POST['tel'], $_POST['email'], $_POST['pwd1'], $_POST['pwd2']);
     if($retour){
         //header('index.php');
-        echo 'USER ADDED ';
+         echo 'USER ADDED ';
     }
     else{
-        echo 'USER ADD FAILED'; 
+         echo 'USER ADD FAILED'; 
     }
 }
 
 //----------------PANIER------------------------
 
 function traitementPanier(){
+
+	$produitDAO = new Produit_DAO($_SESSION['user']);
+	$produit = $produitDAO->getProduitById($_POST['id_produit']);
+	
+	echo 'ID produit -> '.$_POST['id_produit'].'</br>';
+	
+	echo 'ID produit -> '.$produit->getId().'</br>';
+	
 		
 	if(isset($_POST['plus'])){
-	
-			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
 			
-			$produitDAO = new Produit_DAO($_SESSION['user']);
-			$produit = $produitDAO->getProduitById($_POST['id_produit']);
+		$_SESSION['panier']->ajouter($produit);
 			
-			echo ('PODUIT FOUND -> ' .$produit->getNom());
-			
-			$_SESSION['panier']->ajouter($produit);
-			
-			header('Location: ../index.php');
+		header('Location: ../index.php');
 	}
 	else if(isset($_POST['moins'])){
+						
+		$_SESSION['panier']->supprimer($produit);
 			
-			echo ('RECHERCHE PRODUIT ID ->  '.$_POST['id_produit'].'</br>');
-			
-			$produitDAO = new Produit_DAO($_SESSION['user']);
-			$produit = $produitDAO->getProduitById($_POST['id_produit']);
-			
-			echo ('PODUIT FOUND -> ' .$produit->getNom());
-			
-			$_SESSION['panier']->supprimer($produit);
-			
-			header('Location: ../index.php');
+		header('Location: ../index.php');
 	}
+	else if(isset($_POST['valider'])){
+		//Panier valider INSERT COMMANDE
+	}
+	
 }
 
 

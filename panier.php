@@ -1,10 +1,12 @@
 
 	
 <?php
+       include_once('M/pharma.php');
+       include_once('M/parapharma.php');
+       include_once('M/produit.php');
        @session_start();
        include_once('C/ctrlPanier.php');
-       include_once('M/produit.php');
-                include_once('M/pharma.php');
+       
 		
 		/*
 		$p1 = new Produit(1, "Paul Dumont", 01, "", "", "", "2.5", "", "");
@@ -45,7 +47,7 @@
 
 <form method="post" action="scripts/traitements.php">
 	<input type="hidden" name="id_form" value="3">
-	<input type="submit" name"valider" value="Valider">
+	<input type="submit" name"valider" value="Valider" class="button">
 </form>
 
 </div><?php }?>
