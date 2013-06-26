@@ -12,16 +12,21 @@
  */
 class CommandePharma {
     
-    private $listPharma = array();
+    private $listePharma = array();
     //put your code here
     
-    public function getListPharma(){
-	    return $this->listPharma;
     }
     
-    public function setListPharma($listPharma){
-	    $this->listPharma = $listPharma;
+    public function getListePharma() {
+        return $this->listPharma;
     }
+
+    public function setListePharma($listPharma) {
+        $this->listPharma = $listPharma;
+    }
+
+
+
 }
 
 ?>
