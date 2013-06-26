@@ -12,6 +12,7 @@
  */
 class CommandePara {
     private $listePara = array();
+    
     private $isValide;
     private $question;
     

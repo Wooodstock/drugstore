@@ -1,29 +1,42 @@
 <?php
 
-class WFcommande{
+
+include_once('/../M/commandePara.php');
+include_once('/../M/commandePharma.php');
+include_once('/../M/commandeClient.php');
+include_once('ctrlPanier.php');
+@session_start();
+
+Class WFcommande{
 	
 	private $commandepublic;
 	
 	function getCommande(){
-    	return $commande;
+    	return $this->commandepublic;
     }
 	
 	public function createCommande($date){
 	
+		$panier = $_SESSION['panier'];
+	
         $commandePara = new CommandePara(false);
         $commandePharma = new CommandePharma();
         
+        $itemsPharma = array();
+        $itemsPara = array();
+        
         foreach ($panier->getItems() as $item){
             if(is_a($item->getProduit(), 'Pharma')){
-                array_push($commandePharma->getListPharma(), $item);
+                array_push($itemsPharma, $item);
             } else if(is_a($item->getProduit(), 'Parapharma')){
-                array_push($commandePara->getListPharma(), $item);
+                array_push($itemsPara, $item);
             }
         }
         
-        $this->commande = new CommandeClient($commandePara, $commandePharma, $date, 'EN COURS');
+        $commandePara->setListePara($itemsPara);
+        $commandePharma->setListPharma($itemsPharma);
         
-        return $this->commande;
+        $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COURS');
         
 	}
 	

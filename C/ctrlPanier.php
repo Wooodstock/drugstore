@@ -11,7 +11,7 @@ Class CtrlPanier{
 		$this->items = array();
 	}
 	
-	public function get_items(){
+	public function getItems(){
     	return $this->items;
     }
 	
