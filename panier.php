@@ -20,12 +20,12 @@
 		
 		$_SESSION['panier']->supprimer($p1);
 		//*/
-?>
-				
-<div id="panier">
-	<h1>Panier</h1><?php
-	if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
-		foreach($_SESSION['panier']->getItems() as $item){?>
+
+	if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){ ?>
+						
+		<div id="panier">
+			<h1>Panier</h1>
+			<?php foreach($_SESSION['panier']->getItems() as $item){?>
 			<table>
 			<form method="post" action="scripts/traitements.php">
 				<input type="hidden" name="id_form" value="3">
@@ -38,15 +38,15 @@
 						<td>€</td>
 					</tr>
 				<input type="hidden" name="id_produit" value=<?php echo $item->getProduit()->getId(); ?> >
-			</form><?php
-	}?>
-		</table>
+			</form>
+			</table>
+			<?php } ?>
 <b>Total  <?php echo  $_SESSION['panier']->getPrixTotal(); ?>  €</b>
 
 <form method="post" action="scripts/traitements.php">
 	<input type="hidden" name="id_form" value="3">
 	<input type="submit" name="valider" value="valilder" class="button">
-
 </form>
 
-</div><?php }?>
+</div>
+<?php } ?>
