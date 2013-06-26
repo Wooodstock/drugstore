@@ -7,6 +7,7 @@
                 @session_start();
                 include_once('C/ctrlPanier.php');
                 include_once('M/produit.php');
+                include_once('M/pharma.php');
 		
 		/*
 		$p1 = new Produit(1, "Paul Dumont", 01, "", "", "", "2.5", "", "");

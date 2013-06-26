@@ -40,7 +40,7 @@
 						<td>Prix : <?php echo $produit->getPrix()?></td>
 					</tr>
 					<tr>
-						<td><a href="fiche_produit.php" class="button">Voir</a></td>
+						<td><a href="fiche_produit.php?id=<?php echo $produit->getId()?>" class="button">Voir</a></td>
 					</tr>
 				</table>
 			</div>

@@ -8,6 +8,7 @@ and open the template in the editor.
 		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
 		<?php
                         include_once('M/produit.php');
+                        include_once('M/pharma.php');
                         include_once('C/ctrlPanier.php');
 
                         session_start();
