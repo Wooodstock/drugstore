@@ -40,7 +40,7 @@ Class WFcommande{
         $commandePara->setListePara($itemsPara);
         $commandePharma->setListePharma($itemsPharma);
         
-        $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COURS');
+        $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COUR');
         
 	}
 	
@@ -73,8 +73,7 @@ Class WFcommande{
 		
 		$quetionnaires = array($questionnaire1, $questionnaire2, $questionnaire3);
 		
-		$this->commandepublic->getCommandePara()->setQuestionnaire($quetionnaires);
-			
+		$this->commandepublic->getCommandePara()->setQuestionnaire($quetionnaires);			
 	}
 	
 	public function consulterQuestion($question){

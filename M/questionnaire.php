@@ -6,7 +6,7 @@ Class Questionnaire{
 	private $question;
 	private $reponse;
 	
-	public function __construc($question, $reponse){
+	function __construct($question, $reponse){
 		$this->question = $question;
 		$this->reponse = $reponse;
 	}

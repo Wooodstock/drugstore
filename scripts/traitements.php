@@ -95,8 +95,6 @@ function traitementCommande(){
 	
 	$_SESSION['commande']->enregistrer();
 	
-	
-	
 }
 
 

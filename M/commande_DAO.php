@@ -34,7 +34,7 @@ class Commande_DAO {
         $this->conn = $this->DAO->connect();
 
         $reponse = $this->conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , ?, ?, ?, ?)');
-        $reponse->execute(array( $etat, $idClient, 0, 0));
+        $reponse->execute(array( $etat, 0, 0, $idClient));
         
         // retourne id commande
         $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE) FROM COMMANDE');
@@ -63,13 +63,15 @@ class Commande_DAO {
             //Pour chaque question-reponse du questionnaire
             // on enregistre la réponse avec l'id de la question
             // et l'id de la commande para
-            
+
             foreach($questionnaires as $questionnaire){
+            	echo $questionnaire->getReponse()->getLibelle();
                 $idQuestion = $questionnaire->getQuestion()->getId();
-                $reponse = $Questionnaire->getQuestion()->getLibelle();
+                $reponseALaQuestion = $questionnaire->getReponse()->getLibelle();
+                echo 'coco';
                 
                 $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Reponse(? , ?, ?)');
-                $reponse->execute(array($reponse, $idQuestion, $idCommandePara ));
+                $reponse->execute(array($reponseALaQuestion, $idQuestion, $idCommandePara ));
             }
             
             // pour chaque item on sauvegarde le produit dans para et la quantité dans avoir
@@ -94,7 +96,7 @@ class Commande_DAO {
             $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE_PHARMA) FROM COMMANDE_PHARMA');
             $reponse->execute();
             $donnee = $reponse->fetch();
-            $idCommandePharma = $donnee['ID_COMMANDE_PHARMA'];
+            $idCommandePharma = $donnee['MAX(ID_COMMANDE_PHARMA)'];
             
             // pour chaque item on sauvegarde le produit dans pharma et la quantité dans avoir2
             foreach ($listePara as $item){
