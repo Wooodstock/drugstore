@@ -19,14 +19,34 @@
 			<img src="images/logo.jpg" />
 			<h2>Votre pharmacie à portée de clics</h2>
 	</div>
-	
+	<?php
+            @session_start();
+            include_once ('M/produit_DAO.php');
+            include_once('M/pharma.php');
+
+            $produitDAO;
+            if (isset($_SESSION['user']) && $_SESSION['user'] != 'FAILED'){
+                $produitDAO = new Produit_DAO($_SESSION['user']);
+            } else {
+                $produitDAO = new Produit_DAO(null);
+            }
+
+            $id = $_GET['id'];
+            
+            $produit = $produitDAO->getProduitById($id);
+                
+        ?>
 	<div id="page" class="container">
-		<h1>Nom Produit</h1>
-			<img src="images/pic01.jpg" alt="" /><br/>
+		<h1><?php echo $produit->getNom();?></h1>
+			<img src=<?php echo 'images/'.$produit->getNom().'.jpg'?> alt="" /><br/>
 			<span>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam risus velit, vulputate in massa facilisis, egestas mollis magna. 				Maecenas viverra in nisi sit amet suscipit. Etiam augue leo, cursus eget augue eget, semper placerat purus. Interdum et 					malesuada fames ac ante ipsum primis in faucibus. Curabitur eros justo, suscipit vel imperdiet eu, sodales a quam. Mauris 					eu urna a sem tempus malesuada. Integer non neque felis. Nullam fermentum, lectus mattis suscipit aliquet, odio eros 						tincidunt dolor, nec feugiat arcu justo eget nisi. Integer consectetur nibh ut augue condimentum lacinia. Aliquam id 						pharetra nunc, at posuere dolor.
+                            <?php echo 'Lot n°: '.$produit->getNumLot().'<br/>'?>
+                            <?php echo 'Fabriquant : '.$produit->getNomFabriquant().'<br/>'?>
+                            <?php echo 'Expire le : '.$produit->getDateExpiration().'<br/>'?>
+                            <?php echo 'Type : '.$produit->getLibClassePharma().'<br/>'?>
+                            <?php echo 'Stock : '.$produit->getStock() > 5 ? 'Epuisé' : 'En stock'.'<br/>'?>
 			</span><br/><br/><br/>
-			<a class="button">Acheter</a>
+                        <a class="button" >Acheter</a>
 	</div>
 	
 	<div id="footer" class="container">

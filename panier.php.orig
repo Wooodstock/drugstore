@@ -1,10 +1,19 @@
 
 	
+<<<<<<< HEAD
 <?php
        @session_start();
        include_once('C/ctrlPanier.php');
        include_once('M/produit.php');
+=======
+	<?php
+                
+		
+                @session_start();
+                include_once('C/ctrlPanier.php');
+                include_once('M/produit.php');
                 include_once('M/pharma.php');
+>>>>>>> ecce53778ed78fcd03c20ff54edca33f3847d234
 		
 		/*
 		$p1 = new Produit(1, "Paul Dumont", 01, "", "", "", "2.5", "", "");
