@@ -4,6 +4,9 @@
 include_once('/../M/commandePara.php');
 include_once('/../M/commandePharma.php');
 include_once('/../M/commandeClient.php');
+include_once('/../M/reponse.php');
+include_once('/../M/question.php');
+include_once('/../M/questionnaire.php');
 include_once('ctrlPanier.php');
 @session_start();
 
@@ -34,13 +37,13 @@ Class WFcommande{
         }
         
         $commandePara->setListePara($itemsPara);
-        $commandePharma->setListPharma($itemsPharma);
+        $commandePharma->setListePharma($itemsPharma);
         
         $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COURS');
         
 	}
 	
-	public function valider(){
+	public function enregistrer(){
 		//ENREGISTRER COMMANDE DANS DAO
 	}
 	
@@ -48,8 +51,28 @@ Class WFcommande{
 	
 	
 	//Questions
-	public function enregisterQuestion($question){
-		$this->commande->getCommandePharma()->setQuestion($question);
+	public function enregisterQuestion($reponseL1, $reponseL2, $reponseL3){
+	
+	
+		//question
+		$question1 = new Question(1, 'Question numéro 1 sur les allergies?');
+		$question2 = new Question(2, 'Question numéro 2 sur la grossesse?');
+		$question3 = new Question(3, 'Question numéro 3 sur la taille du zizi?');
+		
+		
+		//reponse
+		$reponse1 = new Reponse($reponseL1);
+		$reponse2 = new Reponse($reponseL2);
+		$reponse3 = new Reponse($reponseL3);
+		
+		$questionnaire1 = new Questionnaire($question1, $reponse1);
+		$questionnaire2 = new Questionnaire($question2, $reponse2);
+		$questionnaire3 = new Questionnaire($question3, $reponse3);
+		
+		$quetionnaires = array($questionnaire1, $questionnaire2, $questionnaire3);
+		
+		$this->commandepublic->getCommandePara()->setQuestionnaire($quetionnaires);
+			
 	}
 	
 	public function consulterQuestion($question){

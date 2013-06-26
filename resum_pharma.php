@@ -5,17 +5,20 @@
 				<td>DÉSIGNATION</td>
 				<td>QUANTITÉ</td>
 				<td>PRIX</td>
-				<td></td>
 			</tr>
-			<?php foreach($_SESSION['panier']->get_items() as $item){?>
+			<?php 
+				//foreach($_SESSION['panier']->get_items() as $item){	
+			?>
 			
 			<tr>
-				<td><h1><?php echo $produit->getNom()?></h1></td>
+				<td><h1><?php //echo $produit->getNom()?></h1></td>
 				<td></td>
 				<td></td>
-				<td><a type="submit" class="button">X</a></td>
 			</tr>
 			
-			<?php } ?>
+			<?php //} ?>
 		</table>
+		<form id="senformpharma" method="post" action="">
+		<span>Ordonnance envoyée?</span><br/><br/>
+	</form>
 </div>

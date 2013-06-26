@@ -7,8 +7,8 @@ $_SESSION['commande'] = new WFcommande();
 $_SESSION['commande']->createCommande(date('dd/mm/yy'));
 
 function submitForms(){ 
-   document.sendmessage.submit(); 
-   document.form2.submit(); 
+   document.sendformpharma.submit(); 
+   document.sendformpara.submit(); 
  }
 
 ?>
@@ -38,7 +38,7 @@ function submitForms(){
     
             <?php require "resum_para.php";
             		require"resum_pharma.php"; ?>
-     		<a type="submit" class="button" value="Envoyer"></a>
+     		<a type="submit" class="button" onclick=submitForms() >Envoyer</a><br/>
    </div>       
     	    <div id="footer" class="container">
 				<h2>DRUGSTORE</h2>

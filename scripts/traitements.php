@@ -4,6 +4,7 @@ include_once('../C/ctrlPanier.php');
 include_once('../M/Produit.php');
 include_once('../M/parapharma.php');
 include_once('../M/pharma.php');
+include_once('../C/WFcommande.php');
 @session_start();
 include_once('../C/WFconnexion.php');
 include_once('../C/WFcompte.php');
@@ -21,6 +22,9 @@ switch($_POST['id_form']) {
         break;
     case 3:
         traitementPanier();
+        break;
+    case 4:
+        traitementCommande();
         break;
     default:
         break;
@@ -77,6 +81,21 @@ function traitementPanier(){
 	else if(isset($_POST['valider'])){
 		header('Location: ../resum_panier.php');
 	}
+	
+}
+
+//-----------COMMANDE--------
+
+
+function traitementCommande(){
+
+	echo 'je suis bien ici';
+	
+	$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
+	
+	$_SESSION['commande']->enregistrer();
+	
+	
 	
 }
 

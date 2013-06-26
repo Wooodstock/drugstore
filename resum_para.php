@@ -22,14 +22,15 @@ include_once('/C/WFcommande.php');
 			
 			<?php } ?>
 		</table>
-	<form id="sendmessage" method="post" action="">
+	<form id="sendformpara" method="post" action="scripts/traitements.php">
+		<input type="hidden" name="id_form" value="4">
 		<span>Répondez aux questions suivantes avant de passer à la prochaine étape.</span><br/><br/>
 		Question numéro 1 sur les allergies?<br/>
-		<input type="text" name="question1"><br/>
+		<input type="text" name="reponse1"><br/>
 		Question numéro 2 sur la grossesse?<br/>
-		<input type="text" name="question2"><br/>
+		<input type="text" name="reponse2"><br/>
 		Question numéro 3 sur la taille du zizi?<br/>
-		<input type="text" name="question3"><br/>
-		<a type="submit" class="button">Envoyer</a><br/>
+		<input type="text" name="reponse3"><br/>
+		<input type="submit" class="button" name="envoyer" /><br/>
 	</form>
 </div>

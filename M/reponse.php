@@ -6,8 +6,7 @@ Class Reponse{
     private $id;
     private $libelle;
 	
-    public function __construct($id, $libelle){
-            $this->id = $id;
+    public function __construct($libelle){
             $this->libelle = $libelle;
     }
 	
