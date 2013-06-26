@@ -3,7 +3,7 @@
 
 Class Questionnaire{
 	
-	private $questions;
+	private $question;
 	private $reponse;
 	
 	public function __construc($question, $reponse){
@@ -16,7 +16,7 @@ Class Questionnaire{
 	}
 	
 	public function setQuestion($question){
-		$this->question = $questions;
+		$this->question = $question;
 	}
 	
 	public function getReponse(){

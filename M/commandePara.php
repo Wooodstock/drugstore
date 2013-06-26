@@ -14,10 +14,10 @@ class CommandePara {
     private $listePara = array();
     
     private $isValide;
-    private $questionnaire = array();
+    private $questionnaires = array();
     
     public function getIsValide(){
-    	return $isValide;
+    	return $this->isValide;
     }
     
     public function setIsValide($value){
@@ -36,12 +36,12 @@ class CommandePara {
         $this->listePara = $listePara;
     }
     
-    public function getQuestionnaire(){
-	    return $this->questionnaire;
+    public function getQuestionnaires(){
+	    return $this->questionnaires;
     }
     
-    public function setQuestionnaire($questionnaire){
-	    $this->questionnaire = $questionnaire;
+    public function setQuestionnaire($questionnaires){
+	    $this->questionnaires = $questionnaires;
     }
 
 

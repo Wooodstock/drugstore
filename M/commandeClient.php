@@ -11,6 +11,7 @@
  * @author Bertrand
  */
 class CommandeClient {
+    private $idClient = 1;
     private $commandePara;
     private $commandePharma;
     private $date;
@@ -63,6 +64,15 @@ class CommandeClient {
     public function setEtat($etat) {
         $this->etat = $etat;
     }
+
+    public function getIdClient() {
+        return $this->idClient;
+    }
+
+    public function setIdClient($idClient) {
+        $this->idClient = $idClient;
+    }
+
 
 
 }

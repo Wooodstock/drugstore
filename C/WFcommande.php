@@ -7,6 +7,7 @@ include_once('/../M/commandeClient.php');
 include_once('/../M/reponse.php');
 include_once('/../M/question.php');
 include_once('/../M/questionnaire.php');
+include_once('/../M/commande_DAO.php');
 include_once('ctrlPanier.php');
 @session_start();
 
@@ -44,7 +45,8 @@ Class WFcommande{
 	}
 	
 	public function enregistrer(){
-		//ENREGISTRER COMMANDE DANS DAO
+		$commande_DAO = new Commande_DAO($_SESSION['user']);
+                $commande_DAO->insertCommande($this->commandepublic);
 	}
 	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------

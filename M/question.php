@@ -4,7 +4,6 @@ Class Question{
 
 	private $id;
 	private $libelle;
-	private $reponse;
 	
     function __construct($id, $libelle){
             $this->id = $id;
@@ -18,15 +17,16 @@ Class Question{
     public function getLibelle(){
     	return $this->libelle;
     }
-    
-    public function getReponse(){
-	    return $this->reponse;
-    }
-    
-    public function setReponse($reponse){
-	    $this->reponse = $reponse;
-    }
-}
 
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function setLibelle($libelle) {
+        $this->libelle = $libelle;
+    }
+
+
+}
 
 ?>

@@ -31,7 +31,7 @@ class Commande_DAO {
         $commandePharma = $commande->getCommandePharma();
         $etat = $commande->getEtat();
         $idClient = $commande->getIdClient();
-        $this->conn = $DAO->connect();
+        $this->conn = $this->DAO->connect();
 
         $reponse = $this->conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , ?, ?, ?, ?)');
         $reponse->execute(array( $etat, $idClient, 0, 0));
@@ -40,7 +40,7 @@ class Commande_DAO {
         $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE) FROM COMMANDE');
         $reponse->execute();
         $donnee = $reponse->fetch();
-        $idCommande = $donnee['ID_COMMANDE'];
+        $idCommande = $donnee['MAX(ID_COMMANDE)'];
         
         // si la commande de parapharmacie est pleine 
         if($commandePara != null){
@@ -57,7 +57,7 @@ class Commande_DAO {
             $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE_PARAPHARMA) FROM COMMANDE_PARAPHARMA');
             $reponse->execute();
             $donnee = $reponse->fetch();
-            $idCommandePara = $donnee['ID_COMMANDE_PARAPHARMA'];
+            $idCommandePara = $donnee['MAX(ID_COMMANDE_PARAPHARMA)'];
             
             
             //Pour chaque question-reponse du questionnaire
@@ -111,17 +111,6 @@ class Commande_DAO {
     }
 
     //put your code here
-}
-$date = "20/12/12";
-$etat = "motherfucker";
-$idclient = 1;
-$DAO = new DAO('PHARMAWEB', 'admin');
-$conn = $DAO->connect();
-//$reponse = $conn->prepare('INSERT INTO "PHARMAWEB"."COMMANDE" (DATE_COMMANDE, ETAT_COMMANDE, ID_CLIENT) VALUES (TO_DATE(?, "DD/MM/RR"), ?, ?)');
-
-
-if($reponse){
-    echo 'Achievement complete!';
 }
 
 
