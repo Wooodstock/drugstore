@@ -1,4 +1,5 @@
 <div class="listeproduit">
+<h1>Produits Para-pharmaceutiques</h1>
 		<table>
 			<tr>
 				<td>DÉSIGNATION</td>
@@ -9,20 +10,17 @@
 			<?php foreach($_SESSION['panier']->get_items() as $item){?>
 			
 			<tr>
-				<td><h1><!--<?php// echo $produit->getNom()?> --></h1></td>
-				<td>
-					<input type="submit" name="plus" value="-" class="buttonpanier">
-					<?php// echo $item->getQuantite()?>
-					<input type="submit" name="plus" value="+" class="buttonpanier">
-				</td>
-				<td><?php// echo $produit->getPrix()?></td>
-				<td><a href="fiche_produit.php?id=<?php// echo $produit->getId()?>" class="button">X</a></td>
+				<td><h1></h1></td>
+				<td></td>
+				<td></td>
+				<td><a type="submit" class="button">X</a></td>
 			</tr>
 			
 			<?php } ?>
 		</table>
-	<form method="post" action="">
-	
-		<input type="text" height="50" width="200" name="Question">
+	<form id="sendmessage" method="post" action="">
+		<span>Posez une question à nos pharmaciens si vous voulez un conseil avant votre achat.</span><br/>
+		<textarea form="sendmessage" name="Question"><br/>
+		<a type="submit" class="button" value="Envoyer"></a>
 	</form>
 </div>
