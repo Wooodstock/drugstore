@@ -1,3 +1,18 @@
+<script type="text/javascript">
+function apply()
+{
+  document.frm.sub.disabled=true;
+  if(document.frm.chk.checked==true)
+  {
+    document.frm.sub.disabled=false;
+  }
+  if(document.frm.chk.checked==false)
+  {
+    document.frm.sub.enabled=false;
+  }
+}
+</script> 
+
 <?php
 
 include_once('/C/WFcommande.php');
@@ -79,7 +94,7 @@ $_SESSION['commande']->createCommande(date('dd/mm/yy'));
 			
 			<?php } ?>
 		</table>
-	<form id="sendformpara" method="post" action="scripts/traitements.php">
+	<form name="frm" id="sendformpara" method="post" action="scripts/traitements.php">
 		<input type="hidden" name="id_form" value="4">
 		<span>Répondez aux questions suivantes avant de passer à la prochaine étape.</span><br/><br/>
 		Question numéro 1 sur les allergies?<br/>
@@ -88,7 +103,8 @@ $_SESSION['commande']->createCommande(date('dd/mm/yy'));
 		<input type="text" name="reponse2"><br/>
 		Question numéro 3 sur la taille du zizi?<br/>
 		<input type="text" name="reponse3"><br/>
-		<input type="submit" class="button" name="envoyer" /><br/>
+		<input type="checkbox" name="chk" onClick="apply()"></td></tr>I agree Terms and Conditions</br></br>
+		<input type="submit" name="sub" value="valider" disabled /><br/>
 	</form>
 </div>
 
