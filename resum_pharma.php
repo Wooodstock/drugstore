@@ -1,4 +1,5 @@
 <div class="listeproduit">
+<h1>Produits Pharmaceutiques</h1>
 		<table>
 			<tr>
 				<td>DÉSIGNATION</td>
@@ -10,13 +11,9 @@
 			
 			<tr>
 				<td><h1><?php echo $produit->getNom()?></h1></td>
-				<td>
-					<input type="submit" name="plus" value="-" class="buttonpanier">
-					<?php echo $item->getQuantite()?>
-					<input type="submit" name="plus" value="+" class="buttonpanier">
-				</td>
-				<td><?php echo $produit->getPrix()?></td>
-				<td><a href="fiche_produit.php?id=<?php echo $produit->getId()?>" class="button">X</a></td>
+				<td></td>
+				<td></td>
+				<td><a type="submit" class="button">X</a></td>
 			</tr>
 			
 			<?php } ?>

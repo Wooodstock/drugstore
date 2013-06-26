@@ -476,6 +476,12 @@ ul.contact li a.icon-rss:before
 #menu .current_page_item a
 {
 }
+
+/** LISTE PRODUITS PANIER */
+#listeproduit
+{
+	float : left;
+}
 /** PANIER */
 #panier
 {
