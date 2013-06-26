@@ -27,6 +27,10 @@ class WFcommande{
         
 	}
 	
+	public function valider(){
+		//ENREGISTRER COMMANDE DANS DAO
+	}
+	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------
 	
 	
@@ -46,9 +50,10 @@ class WFcommande{
 	
 	
 
-	//---------ACTION COMMANDE  PHARMA--------------------------
+	//---------ACTION COMMANDE PHARMA--------------------------
 	
-
+	
+	
 	
 }
 
