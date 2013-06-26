@@ -7,7 +7,10 @@ and open the template in the editor.
 	<div id="login">
 		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
 		<?php
-                        @session_start();
+                        include_once('M/produit.php');
+                        include_once('C/ctrlPanier.php');
+
+                        session_start();
 			if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
 				require "logged.php";
 			}

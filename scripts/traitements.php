@@ -1,10 +1,13 @@
 
 <?php
+include_once('../C/ctrlPanier.php');
+include_once('../M/Produit.php');
+@session_start();
 include_once('../C/WFconnexion.php');
 include_once('../C/WFcompte.php');
 include_once('../M/produit_DAO.php');
 
-@session_start();
+
 
 
 switch($_POST['id_form']) {

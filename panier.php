@@ -2,11 +2,11 @@
 	<h1>Panier</h1>
 	
 	<?php
-
-		include('C/ctrlPanier.php');
-		include('M/produit.php');
+                
 		
-		@session_start();
+                @session_start();
+                include_once('C/ctrlPanier.php');
+                include_once('M/produit.php');
 		
 		/*
 		$p1 = new Produit(1, "Paul Dumont", 01, "", "", "", "2.5", "", "");
@@ -27,6 +27,8 @@
 	
 <table>
 <?php
+			if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
+
 	foreach($_SESSION['panier']->get_items() as $item){?>
 		<form method="post" action="scripts/traitements.php">
 			<input type="hidden" name="id_form" value="3">
@@ -45,4 +47,4 @@
 
 <b>Total  <?php echo  $_SESSION['panier']->getPrixTotal(); ?>  €</b>
 
-</div>
+                        </div><?php }?>

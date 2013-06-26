@@ -1,31 +1,6 @@
 <?php
 
-Class Item{
-	
-	private $produit;
-	private $quantite;
-	
-	public function __construct($produit, $quantite){
-		$this->produit = $produit;
-		$this->quantite = $quantite;
-	}
-	
-	
-	public function setProduit($value){
-    	$this->produit = $value;
-    }
-    public function setQuantite($value){
-    	$this->quantite = $value;
-    }
-	
-    public function getProduit(){
-    	return $this->produit;
-    }
-    public function getQuantite(){
-    	return $this->quantite;
-    }
-	
-}
+
 
 Class CtrlPanier{
 	
@@ -112,6 +87,31 @@ Class CtrlPanier{
 	}
 }
 
-
+Class Item{
+	
+	private $produit;
+	private $quantite;
+	
+	public function __construct($produit, $quantite){
+		$this->produit = $produit;
+		$this->quantite = $quantite;
+	}
+	
+	
+	public function setProduit($value){
+    	$this->produit = $value;
+    }
+    public function setQuantite($value){
+    	$this->quantite = $value;
+    }
+	
+    public function getProduit(){
+    	return $this->produit;
+    }
+    public function getQuantite(){
+    	return $this->quantite;
+    }
+	
+}
 
 ?>

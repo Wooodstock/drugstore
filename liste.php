@@ -8,8 +8,14 @@
                         <?php 
                         
                             include_once ('M/produit_DAO.php');
-                        
+                            
+                            $produitDAO;
+                            if (isset($_SESSION['user']) && $_SESSION['user'] != 'FAILED'){
                             $produitDAO = new Produit_DAO($_SESSION['user']);
+                            } else {
+                                $produitDAO = new Produit_DAO(null);
+                            }
+                            
                             $currentPage = $_SERVER['SCRIPT_NAME'];
                             $list = array();
                             if($currentPage == '/drugstore/pharmacie.php'){
