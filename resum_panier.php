@@ -6,11 +6,6 @@ $_SESSION['commande'] = new WFcommande();
 
 $_SESSION['commande']->createCommande(date('dd/mm/yy'));
 
-function submitForms(){ 
-   document.sendformpharma.submit(); 
-   document.sendformpara.submit(); 
- }
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -35,10 +30,70 @@ function submitForms(){
                 <h2>Votre pharmacie à portée de clics</h2>
             </div>
         </div>
-    
-            <?php require "resum_para.php";
-            		require"resum_pharma.php"; ?>
-     		<a type="submit" class="button" onclick=submitForms() >Envoyer</a><br/>
+
+<!-- COMMANDE PHARMA  -->
+
+<div class="listeproduit">
+<h1>Produits Pharmaceutiques</h1>
+		<table>
+			<tr>
+				<td>DÉSIGNATION</td>
+				<td>QUANTITÉ</td>
+				<td>PRIX</td>
+				<td></td>
+			</tr>
+			<?php foreach($_SESSION['commande']->getCommande()->getCommandePharma()->getListePharma() as $item){?>
+			
+			<tr>
+				<td><?php echo $item->getProduit()->getNom() ?></td>
+				<td><?php echo $item->getQuantite() ?></td>
+				<td><?php echo ($item->getProduit()->getPrix() * $item->getQuantite())?></td>
+			</tr>
+			
+			<?php } ?>
+		</table>
+		<form id="senformpharma" method="post" action="">
+		<span>Ordonnance envoyée?</span><br/><br/>
+		</form>
+</div>
+
+
+<!-- COMMADE PARA -->
+
+<div class="listeproduit">
+<h1>Produits Para-pharmaceutiques</h1>
+		<table>
+			<tr>
+				<td>DÉSIGNATION</td>
+				<td>QUANTITÉ</td>
+				<td>PRIX</td>
+				<td></td>
+			</tr>
+			<?php foreach($_SESSION['commande']->getCommande()->getCommandePara()->getListePara() as $item){?>
+			
+			<tr>
+				<td><?php echo $item->getProduit()->getNom() ?></td>
+				<td><?php echo $item->getQuantite() ?></td>
+				<td><?php echo ($item->getProduit()->getPrix() * $item->getQuantite())?></td>
+			</tr>
+			
+			<?php } ?>
+		</table>
+	<form id="sendformpara" method="post" action="scripts/traitements.php">
+		<input type="hidden" name="id_form" value="4">
+		<span>Répondez aux questions suivantes avant de passer à la prochaine étape.</span><br/><br/>
+		Question numéro 1 sur les allergies?<br/>
+		<input type="text" name="reponse1"><br/>
+		Question numéro 2 sur la grossesse?<br/>
+		<input type="text" name="reponse2"><br/>
+		Question numéro 3 sur la taille du zizi?<br/>
+		<input type="text" name="reponse3"><br/>
+		<input type="submit" class="button" name="envoyer" /><br/>
+	</form>
+</div>
+
+<!-- END -->
+
    </div>       
     	    <div id="footer" class="container">
 				<h2>DRUGSTORE</h2>
