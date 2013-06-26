@@ -54,6 +54,12 @@ h2
 h3
 {
 	font-size: 1.6em;
+}
+h4
+{
+	color: #6fb43f;
+	font-size: 1.6em;
+	margin : 0px;
 }
 
 p, ol, ul
@@ -111,18 +117,17 @@ hr
 
 .title
 {
-
-	margin: 0 0 1em 0;
+	float : left;
+	margin: 0em;
 	text-align: center;
+	width : 80%;
 }
 
-.title:after
+.title img
 {
-	content: '';
-	display: block;
-	border-top: solid 1px #dbdbdb;
-	height: 8px;
+	width : 600px;	
 }
+.title
 
 .title h2
 {
@@ -286,6 +291,28 @@ ul.contact li a.icon-rss:before
 	text-shadow:1px 1px 0px #ffffff;
 }
 
+.buttonlog {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color: white;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:20px;
+	font-weight:normal;
+	width : 15px;
+	padding : 0px 0px 6px 6px;
+	height : 15px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+
 /** WRAPPER */
 
 #wrapper
@@ -293,8 +320,8 @@ ul.contact li a.icon-rss:before
 	background: #FFF;
 }
 
-#logged{
-    margin : 3em 0em;
+#log{
+    margin : 2em 0em;
 }
 
 #featured-wrapper
@@ -329,8 +356,10 @@ ul.contact li a.icon-rss:before
 {
 	overflow: hidden;
 	width: auto;
+	display: block;
 
 }
+
 
 .container
 {
@@ -485,8 +514,10 @@ ul.contact li a.icon-rss:before
 /** PANIER */
 #panier
 {
+	margin : 0px;
+	padding : 0px;
 	float : left;
-	width : 250px;
+	width : 20%;
 }
 /** PAGE */
 
@@ -585,12 +616,12 @@ ul.contact li a.icon-rss:before
 	font-weight: 400;
 	font-size: 0.90em;
 	color: #6F6F6F;
-}
-
-#welcome
+}
+#welcome.wrapper-style1
 {
+	border-bottom: 1px;
+	border-color: black;
 }
-
 #welcome p
 {
 	padding: 0em 4em;

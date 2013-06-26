@@ -20,7 +20,6 @@
             include_once "panier.php"; ?>
             <div class="title">
                 <img src="images/logo.jpg" />
-                <h2>Votre pharmacie à portée de clics</h2>
             </div>
         </div>
 
