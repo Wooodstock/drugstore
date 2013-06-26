@@ -1,3 +1,8 @@
+<?php
+include_once('/C/WFcommande.php');
+@session_start();
+?>
+
 <div class="listeproduit">
 <h1>Produits Para-pharmaceutiques</h1>
 		<table>
@@ -7,21 +12,24 @@
 				<td>PRIX</td>
 				<td></td>
 			</tr>
-			<?php foreach($_SESSION['panier']->get_items() as $item){?>
+			<?php foreach($_SESSION['commande']->getCommande()->getCommandePara()->getListePara() as $item){?>
 			
 			<tr>
-				<td><h1></h1></td>
-				<td></td>
-				<td></td>
-				<td><a type="submit" class="button">X</a></td>
+				<td><?php echo $item->getProduit()->getNom() ?></td>
+				<td><?php echo $item->getQuantite() ?></td>
+				<td><?php echo ($item->getProduit()->getPrix() * $item->getQuantite())?></td>
 			</tr>
 			
 			<?php } ?>
 		</table>
 	<form id="sendmessage" method="post" action="">
-		<span>Posez une question à nos pharmaciens si vous voulez un conseil avant votre achat.</span><br/>
-		<textarea form="sendmessage" name="Question"></textarea><br/>
+		<span>Répondez aux questions suivantes avant de passer à la prochaine étape.</span><br/><br/>
+		Question numéro 1 sur les allergies?<br/>
+		<input type="text" name="question1"><br/>
+		Question numéro 2 sur la grossesse?<br/>
+		<input type="text" name="question2"><br/>
+		Question numéro 3 sur la taille du zizi?<br/>
+		<input type="text" name="question3"><br/>
 		<a type="submit" class="button">Envoyer</a><br/>
-		<input type="checkbox">Je certifie blablabla</input>
 	</form>
 </div>

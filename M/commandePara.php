@@ -12,12 +12,9 @@
  */
 class CommandePara {
     private $listePara = array();
+    
     private $isValide;
     private $question;
-    
-    
-    public function __construct(){
-    }
     
     public function getIsValide(){
     	return $isValide;

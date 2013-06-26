@@ -11,7 +11,7 @@ and open the template in the editor.
                         include_once('M/pharma.php');
                         include_once('C/ctrlPanier.php');
 
-                        session_start();
+                        @session_start();
 			if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
 				require "logged.php";
 			}

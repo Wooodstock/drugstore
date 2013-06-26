@@ -22,7 +22,7 @@
 		//*/
 		
 	if (isset($_SESSION['login']) && $_SESSION['login'] != 'FAILED'){
-		foreach($_SESSION['panier']->get_items() as $item){?>
+		foreach($_SESSION['panier']->getItems() as $item){?>
 				
 <div id="panier">
 	<h1>Panier</h1>	
