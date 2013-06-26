@@ -31,13 +31,13 @@
 			<div class="produit">
 				<table>
 					<tr>
-						<td><img src=<?php echo 'images/'.$produit->getNom()?> alt="" /></td>
+						<td><img src=<?php echo 'images/'.$produit->getNom().'.jpg'?> alt="" /></td>
 					</tr>
 					<tr>
 						<td><h2><?php echo $produit->getNom()?></h2></td>
 					</tr>
 					<tr>
-						<td>Prix</td>
+						<td>Prix : <?php echo $produit->getPrix()?></td>
 					</tr>
 					<tr>
 						<td><a href="fiche_produit.php" class="button">Voir</a></td>
