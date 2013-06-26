@@ -20,7 +20,8 @@
 		</table>
 	<form id="sendmessage" method="post" action="">
 		<span>Posez une question à nos pharmaciens si vous voulez un conseil avant votre achat.</span><br/>
-		<textarea form="sendmessage" name="Question"><br/>
-		<a type="submit" class="button" value="Envoyer"></a>
+		<textarea form="sendmessage" name="Question"></textarea><br/>
+		<a type="submit" class="button">Envoyer</a><br/>
+		<input type="checkbox">Je certifie blablabla</input>
 	</form>
 </div>
