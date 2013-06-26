@@ -56,30 +56,26 @@ function inscriptionClient() {
 
 //----------------PANIER------------------------
 
-function traitementPanier(){
-
-	$produitDAO = new Produit_DAO($_SESSION['user']);
-	$produit = $produitDAO->getProduitById($_POST['id_produit']);
-	
-	echo 'ID produit -> '.$_POST['id_produit'].'</br>';
-	
-	echo 'ID produit -> '.$produit->getId().'</br>';
-	
-		
+function traitementPanier(){		
 	if(isset($_POST['plus'])){
+	
+		$produitDAO = new Produit_DAO($_SESSION['user']);
+		$produit = $produitDAO->getProduitById($_POST['id_produit']);
 			
 		$_SESSION['panier']->ajouter($produit);
 			
 		header('Location: ../index.php');
 	}
 	else if(isset($_POST['moins'])){
+		$produitDAO = new Produit_DAO($_SESSION['user']);
+		$produit = $produitDAO->getProduitById($_POST['id_produit']);
 						
 		$_SESSION['panier']->supprimer($produit);
 			
 		header('Location: ../index.php');
 	}
 	else if(isset($_POST['valider'])){
-		//Panier valider INSERT COMMANDE
+		header('Location: ../resum_panier.php');
 	}
 	
 }
