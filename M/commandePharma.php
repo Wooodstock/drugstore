@@ -14,11 +14,6 @@ class CommandePharma {
     
     private $listePharma = array();
     
-    /*
-    }
-    */
-
-    
     public function getListePharma() {
         return $this->listePharma;
     }
