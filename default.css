@@ -520,10 +520,46 @@ ul.contact li a.icon-rss:before
 }
 
 /** LISTE PRODUITS PANIER */
-#listeproduit
+.listeproduitpara
 {
+	border-left: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
 	float : left;
+	width : 50%;
+	min-height: 200px;
+	
+}
+.listeproduitpharma
+{
+	border-bottom: 1px solid #dbdbdb;
+	float : left;
+	width : 50%;
+	min-height: 200px;
+	
 }
+.listeproduitpharma h1
+{
+	text-align: center;
+	font-weight: 100;
+	letter-spacing: 10px;
+	color: black;
+	text-transform: uppercase;
+	font-size: small;
+	border-bottom: 1px solid #dbdbdb;
+	
+}
+.listeproduitpara h1
+{
+	border-bottom: 1px solid #dbdbdb;
+	text-align: center;
+	font-weight: 100;
+	letter-spacing: 10px;
+	color: black;
+	text-transform: uppercase;
+	font-size: small;
+	
+}
+
 /** PANIER */
 #panier
 {
@@ -559,7 +595,50 @@ ul.contact li a.icon-rss:before
 {		
 	float : right;
 	margin-right: 10px;
-} 
+}
+
+
+#resultpanier{
+	text-align: center;
+	width : 100%;
+	border: 0px solid #dbdbdb;
+	border-spacing: 0px;
+}
+
+#resultpanier thead tr{
+  font-size: 14px;
+}
+
+#resultpanier thead tr th{
+	  border-bottom: 2px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  margin: 0px;
+  padding: 2px;
+  background-color: #cccccc;
+}
+
+#resultpanier tr {
+  color: black;
+  font-size:12px;
+  background-color: white;
+}
+
+#resultpanier tr.odd {
+  background-color: #AAAAAA;
+}
+
+#resultpanier tr:nth-child(2n+1)
+{
+    background-color: #f0f0f0;
+}
+
+#resultpanier tr td, th{
+	
+  border-bottom: 1px solid #dbdbdb;
+  padding: 2px;
+}
+
+
 #panier table{
 	text-align: center;
 	width : 100%;
@@ -628,6 +707,14 @@ a:visited{
 }
 
 /** CONTENT */
+
+#ordoquestions
+{
+	padding-top : 14em;
+	font-weight: 100;
+	color: black;
+	text-align: center;
+}
 
 #content
 {
