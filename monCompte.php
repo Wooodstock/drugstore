@@ -65,7 +65,7 @@ else{
 								</table>
 							<?php
 			        		}
-			        		?><b>Listing PHarma:</b><?php 
+			        		?><b>Listing Pharma:</b><?php 
 			        		foreach($commande->getCommandePharma()->getListePharma() as $item){
 				        	?>
 					       		<table>
@@ -77,7 +77,15 @@ else{
 									</tr>
 								</table>
 							<?php
-				        	}		        	
+				        	}
+				        	if($_SESSION['user'] == 'pharmacien'){?>
+					        	<form name="frm" id="formValiderCommande" method="post" action="scripts/traitements.php">
+							        <input type="hidden" name="id_form" value="<?php /*echo $commande->getId();*/ ?>">
+							        <input type="hidden" name="id_commande" value="5">
+							        <input type="submit" name="commandeValidation" value="Valider Commande">
+					        	</form>
+						    <?php
+						    }		        	
 		        		}
 		        	?>        	
 	        	</div>

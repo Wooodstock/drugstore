@@ -14,9 +14,11 @@ class CommandePharma {
     
     private $listePharma = array();
     
+    /*
     function __construct($listePharma) {
         $this->listePharma = $listePharma;
     }
+    */
 
     
     public function getListePharma() {
