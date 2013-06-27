@@ -11,7 +11,8 @@
  * @author Bertrand
  */
 class CommandeClient {
-    private $idClient = 1;
+    private $id;
+    private $client;
     private $commandePara;
     private $commandePharma;
     private $date;
@@ -25,11 +26,12 @@ class CommandeClient {
     
     */
     
-    function __construct($commandePara, $commandePharma, $date, $etat) {
+    function __construct($commandePara, $commandePharma, $date, $etat, $client) {
         $this->commandePara = $commandePara;
         $this->commandePharma = $commandePharma;
         $this->date = $date;
         $this->etat = $etat;
+        $this->client = $client;
     }
 
     
@@ -73,7 +75,26 @@ class CommandeClient {
         $this->idClient = $idClient;
     }
 
+    public function getClient() {
+        return $this->client;
+    }
 
+    public function setClient($client) {
+        $this->client = $client;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+
+
+
+    
 
 }
 

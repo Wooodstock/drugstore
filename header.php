@@ -23,7 +23,7 @@ and open the template in the editor.
                     <li class="current_page_item"><a href="index.php" accesskey="1" title="">Home</a></li>
                     <li><a href="pharmacie.php" accesskey="2" title="">Pharmacie</a></li>
                     <li><a href="parapharmacie.php" accesskey="3" title="">Parapharmacie</a></li>
-                    <li><a href="#" accesskey="4" title="">Mon Compte</a></li>
+                    <li><a href="monCompte.php" accesskey="4" title="">Mon Compte</a></li>
                     <li><a href="#" accesskey="5" title="">Contact</a></li>
 		</ul>
 	</div>
