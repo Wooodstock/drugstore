@@ -1,6 +1,6 @@
 <?php
 
-
+include_once('ctrlPanier.php');
 include_once('/../M/commandePara.php');
 include_once('/../M/commandePharma.php');
 include_once('/../M/commandeClient.php');
@@ -8,7 +8,7 @@ include_once('/../M/reponse.php');
 include_once('/../M/question.php');
 include_once('/../M/questionnaire.php');
 include_once('/../M/commande_DAO.php');
-include_once('ctrlPanier.php');
+
 
 @session_start();
 
