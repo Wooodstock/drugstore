@@ -88,12 +88,21 @@ function traitementPanier(){
 
 
 function traitementCommande(){
-
-	echo 'je suis bien ici';
 	
-	$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
+	//TIBO
+	if(isset($_POST['sub'])){
+		$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
+		$_SESSION['commande']->enregistrer();
+		
+		//REDIRECTION, VIDAGE PANIER
+	}
 	
-	$_SESSION['commande']->enregistrer();
+	else if(isset($_POST['commandeValidation'])){
+		$_SESSION['commande']->valider($_POST['id_commande']);
+	}
+	//FIN TIBO
+	
+	// o <--- YOU ARE HERE
 	
 }
 

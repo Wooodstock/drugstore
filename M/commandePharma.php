@@ -21,9 +21,6 @@ class CommandePharma {
     public function setListePharma($listePharma) {
         $this->listePharma = $listePharma;
     }
-
-
-
 }
 
 ?>

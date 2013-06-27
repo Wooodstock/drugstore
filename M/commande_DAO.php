@@ -29,6 +29,17 @@ class Commande_DAO {
         $this->DAO = DAO::getDAO($currentUser);
     }
     
+    public function updateCommande($commande){
+	    $this->conn = $this->DAO->connect();
+
+        $reponse = $this->conn->prepare('CALL PKG_COMMON.UPDATE_COMMANDE(?,?,?,?)');
+        $reponse->execute(array($commande->getId(), $commande->getEtat(), 0, $commande->getClient()->getId()));
+        
+        //id, etat, montant payer, idclient
+    }
+    
+    
+    
     public function insertCommande($commande){
 
         $commandePara = $commande->getCommandePara();
@@ -115,6 +126,7 @@ class Commande_DAO {
     
     public function getCommandeById($id){
         
+        $this->conn = $this->DAO->connect();
         $reponse = $this->conn->prepare('SELECT * FROM COMMANDE WHERE ID_COMMANDE = ?');
         $reponse->execute(array($id));
         $donnee = $reponse->fetch();
@@ -234,9 +246,6 @@ class Commande_DAO {
             }
             return $commandes;
     }
-    
-    
-    
     
     //put your code here
 }
