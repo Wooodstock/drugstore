@@ -50,6 +50,12 @@ Class WFcommande{
                 $commande_DAO->insertCommande($this->commandepublic);
 	}
 	
+	public function listingCommandePrep(){
+		//Connexion DAO; 
+		//c’est ici que l'on scotche!
+		return array($this->commandepublic);
+	}
+	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------
 	
 	
