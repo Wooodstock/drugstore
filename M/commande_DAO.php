@@ -145,16 +145,17 @@ class Commande_DAO {
             }
             
             $id = $donnee['ID_COMMANDE_PHARMA'];
-            echo $id.'<br>';
             $reponse = $this->conn->prepare('SELECT * FROM AVOIR2 WHERE ID_COMMANDE_PHARMA = ?');
             $reponse->execute(array($id));
             
             
             $listeItemPharma = array();
             while($donnee = $reponse->fetch()){ 
+               
                 $produit_DAO = new Produit_DAO(null);
                 $produit = $produit_DAO->getProduitById($donnee['ID_PRODUIT_PHARMA']);
                 $item = new Item($produit, $donnee['QTE_PHARMA']);
+                
                 array_push($listeItemPharma, $item);
             }
             
@@ -162,15 +163,15 @@ class Commande_DAO {
             
             $commandePharma = new CommandePharma();
             $commandePharma->setListePharma($listeItemPharma);
-            echo 'coucou';
             return $commandePharma;
     }
     
     public function getCommandeParaById($idCommande){
-            $reponse2 = $this->conn->prepare('SELECT * FROM COMMANDE_PARAPHARMA WHERE ID_COMMANDE_PARAPHARMA = ?');
+            $reponse2 = $this->conn->prepare('SELECT * FROM COMMANDE_PARAPHARMA WHERE ID_COMMANDE = ?');
             $reponse2->execute(array($idCommande));
             $donnee = $reponse2->fetch();
             if($donnee == null){
+                
                 return null;
             }
             
@@ -181,6 +182,7 @@ class Commande_DAO {
             $reponse->execute(array($id));
             
             while($donnee = $reponse->fetch()){
+                
                 $produit_DAO = new Produit_DAO(null);
                 $produit = $produit_DAO->getProduitById($donnee['ID_PRODUIT_PARAPHARMA']);
                 $item = new Item($produit, $donnee['QTE_PARAPHARMA']);
