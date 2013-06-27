@@ -63,6 +63,18 @@ Class WFcommande{
 		return $commande;
 	}
 	
+	//Valide un commande
+	public function valider($id){
+		$commande_DAO = new Commande_DAO(null);
+		$commandes = $commande_DAO->getCommandeById($id);
+		
+		$commandes->setEtat('Valider');
+		
+		
+		$commande_DAO->updateCommande($commandes);
+		
+	}
+	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------
 	
 	
@@ -92,11 +104,6 @@ Class WFcommande{
 	
 	public function consulterQuestion($question){
 		return $this->commande->getCommandePharma()->getQuestion();
-	}
-	
-	//commande
-	public function validerParaPharma(){
-		$this->commande->getCommandePharma()->setIsValide($true);
 	}
 	
 	

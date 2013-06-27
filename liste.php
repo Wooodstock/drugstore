@@ -28,6 +28,7 @@
                             if($currentPage == '/drugstore/pharmacie.php'){
                                 $list = $produitDAO->getAllPharma();
                             } else if ($currentPage == "/drugstore/parapharmacie.php"){
+
                             
                                 $list = $produitDAO->getAllParapharma();
                             }

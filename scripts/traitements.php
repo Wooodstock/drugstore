@@ -88,14 +88,22 @@ function traitementPanier(){
 
 
 function traitementCommande(){
-
+	
+	
+	if(isset($_POST['sub'])){
+		$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
+		$_SESSION['commande']->enregistrer();
+                //REDIRECTION, VIDAGE PANIER
+                header('Location: ../resum_facture.php');
+                $_SESSION['panier'] = new CtrlPanier();
+		
+	}
+	
+	else if(isset($_POST['commandeValidation'])){
+		$_SESSION['commande']->valider($_POST['id_commande']);
+	}
+	
         
-	echo 'je suis bien ici';
-	
-	$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
-	
-	$_SESSION['commande']->enregistrer();
-        header('Location: ../resum_facture.php');
 }
 
 
