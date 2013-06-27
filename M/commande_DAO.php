@@ -118,11 +118,13 @@ class Commande_DAO {
         $reponse = $this->conn->prepare('SELECT * FROM COMMANDE WHERE ID_COMMANDE = ?');
         $reponse->execute(array($id));
         $donnee = $reponse->fetch();
-        
+        echo $id;
         $date = $donnee['DATE_COMMANDE'];
         $etat = $donnee['ETAT_COMMANDE'];
         $idClient = $donnee['ID_CLIENT'];
-        
+        $montantTotal = $donnee['MONTANT_TOTAL'];
+        $montantSecu = $donnee['MONTANT_SECU'];
+        $montantMutu = $donnee['MONTANT_MUTUELLE'];
         $client_DAO = new Client_DAO();
         $client = $client_DAO->getUserById($idClient);
         
@@ -131,6 +133,9 @@ class Commande_DAO {
         
         $commande = new CommandeClient($commandePara, $commandePharma, $date, $etat, $client);
         $commande->setId($id);
+        $commande->setMontantTotal($montantTotal);
+        $commande->setMontantSecu($montantSecu);
+        $commande->setMontantMutu($montantMutu);
         return $commande;
     }
     
@@ -233,6 +238,15 @@ class Commande_DAO {
                 array_push($commandes, $this->getCommandeById($donnee['ID_COMMANDE']));
             }
             return $commandes;
+    }
+    
+    public function getCommandeByIdClient($id){
+            $DAO = new DAO('PHARMAWEB', 'admin');
+            $this->conn = $DAO->connect();
+            $reponse = $this->conn->prepare('SELECT MAX(ID_COMMANDE) FROM COMMANDE WHERE ID_CLIENT = ?');
+            $reponse->execute(array($id));
+            $donnee = $reponse->fetch();
+            return $this->getCommandeById($donnee['MAX(ID_COMMANDE)']);
     }
     
     

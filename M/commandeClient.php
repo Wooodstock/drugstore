@@ -17,6 +17,9 @@ class CommandeClient {
     private $commandePharma;
     private $date;
     private $etat;
+    private $montantTotal;
+    private $montantSecu;
+    private $montantMutu;
     
     /*ETAT COMMANDE
     
@@ -89,6 +92,30 @@ class CommandeClient {
 
     public function setId($id) {
         $this->id = $id;
+    }
+
+    public function getMontantTotal() {
+        return $this->montantTotal;
+    }
+
+    public function setMontantTotal($montantTotal) {
+        $this->montantTotal = $montantTotal;
+    }
+
+    public function getMontantSecu() {
+        return $this->montantSecu;
+    }
+
+    public function setMontantSecu($montantSecu) {
+        $this->montantSecu = $montantSecu;
+    }
+
+    public function getMontantMutu() {
+        return $this->montantMutu;
+    }
+
+    public function setMontantMutu($montantMutu) {
+        $this->montantMutu = $montantMutu;
     }
 
 

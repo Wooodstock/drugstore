@@ -37,20 +37,19 @@ include_once('/C/WFcommande.php');
 				<td>QUANTITÉ</td>
 				<td>PRIX</td>
 			</tr>
-			<?php foreach($_SESSION['commande']->getCommande()->getCommandePharma()->getListePharma() as $item){?>
+			<?php
+                        $commande = $_SESSION['commande']->getCommandeByIdClient($_SESSION['client']->getId());
+                        foreach($commande->getCommandePharma()->getListePharma() as $item){?>
 			
 			<tr>
 				<td><?php echo $item->getProduit()->getNom() ?></td>
 				<td><?php echo $item->getQuantite() ?></td>
 				<td><?php echo ($item->getProduit()->getPrix() * $item->getQuantite())?></td>
-                                
 			</tr>
 			
 			<?php } ?>
-                        <tr><?php echo $item->getCommande() ?></tr>
 		</table>
 		<form id="senformpharma" method="post" action="">
-		<span>Ordonnance envoyée?</span><br/><br/>
 		</form>
 </div>
 
@@ -66,7 +65,7 @@ include_once('/C/WFcommande.php');
 				<td>PRIX</td>
 				<td></td>
 			</tr>
-			<?php foreach($_SESSION['commande']->getCommande()->getCommandePara()->getListePara() as $item){?>
+			<?php foreach($commande->getCommandePara()->getListePara() as $item){?>
 			
 			<tr>
 				<td><?php echo $item->getProduit()->getNom() ?></td>
@@ -76,6 +75,10 @@ include_once('/C/WFcommande.php');
 			
 			<?php } ?>
 		</table>
+                        <?php echo '<br>'?>
+                       MONTANT Total : <?php echo $commande->getMontantTotal();'<br>'?>
+                       MONTANT Secu : <?php echo $commande->getMontantSecu();'<br>'?>
+                       MONTANT Mutuelle : <?php echo $commande->getMontantMutu();'<br>'?>
 
 </div>
 

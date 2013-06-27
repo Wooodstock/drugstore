@@ -56,6 +56,12 @@ Class WFcommande{
                 $commandes = $commande_DAO->getAllCommandesEnCour();
 		return $commandes;
 	}
+        
+        public function getCommandeByIdClient($id){
+                $commande_DAO = new Commande_DAO(null);
+                $commande = $commande_DAO->getCommandeByIdClient($id);
+		return $commande;
+	}
 	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------
 	
@@ -97,9 +103,7 @@ Class WFcommande{
 
 	//---------ACTION COMMANDE PHARMA--------------------------
 	
-	
-	
-	
+        
 }
 
 

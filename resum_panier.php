@@ -109,7 +109,6 @@ $_SESSION['commande']->createCommande(date('dd/mm/yy'));
 </div>
 
 <!-- END -->
-
    </div>       
     	    <div id="footer" class="container">
 				<h2>DRUGSTORE</h2>

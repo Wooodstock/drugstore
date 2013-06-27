@@ -89,12 +89,13 @@ function traitementPanier(){
 
 function traitementCommande(){
 
+        
 	echo 'je suis bien ici';
 	
 	$_SESSION['commande']->enregisterQuestion($_POST['reponse1'], $_POST['reponse2'], $_POST['reponse3']);
 	
 	$_SESSION['commande']->enregistrer();
-	
+        header('Location: ../resum_facture.php');
 }
 
 
