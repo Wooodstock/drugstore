@@ -37,8 +37,8 @@ class Commande_DAO {
         $idClient = $commande->getClient()->getId();
         $this->conn = $this->DAO->connect();
 
-        $reponse = $this->conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , ?, ?, ?, ?)');
-        $reponse->execute(array( $etat, 0, 0, $idClient));
+        $reponse = $this->conn->prepare('CALL PKG_COMMON.INSERT_COMMANDE(SYSDATE , ?, ?, ?, ?,?, ?)');
+        $reponse->execute(array( $etat,0,0, 0, 0, $idClient));
         
         
         // retourne id commande
@@ -145,6 +145,7 @@ class Commande_DAO {
             }
             
             $id = $donnee['ID_COMMANDE_PHARMA'];
+            echo $id.'<br>';
             $reponse = $this->conn->prepare('SELECT * FROM AVOIR2 WHERE ID_COMMANDE_PHARMA = ?');
             $reponse->execute(array($id));
             
@@ -161,6 +162,7 @@ class Commande_DAO {
             
             $commandePharma = new CommandePharma();
             $commandePharma->setListePharma($listeItemPharma);
+            echo 'coucou';
             return $commandePharma;
     }
     

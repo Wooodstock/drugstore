@@ -14,7 +14,7 @@ class CommandePharma {
     
     private $listePharma = array();
     
-    function __construct() {
+    function __construct(){
     }
 
     
