@@ -1,8 +1,8 @@
+<div id="content">
 <form name="form_add" id="form_add" method="post" action="scripts/traitements.php">
     <input type="hidden" name="id_form" value="2">
-                <h1>Création de votre compte client sur notre site</h1>
-  <h3><br>
-  Informations Client : </h3>
+                <h1>Inscription</h1><br/>
+  <h3>Informations Client : </h3>
                                                   <table border="0" cellpadding="4" cellspacing="0" style="width:100%;">
                             <tbody><tr>
                               <td width="20">&nbsp;</td>
@@ -298,5 +298,7 @@
                                   <input name="date_crea" type="hidden" id="date_crea" value=""></td>
                               <td><input name="gestion_compte_add_form" type="submit" id="gestion_compte_add_form" value="Soumettre ma demande" class="button medium white"></td>
                             </tr>
-    </tbody></table>
+    </tbody>
+    </table>
 </form>
+</div>

@@ -11,15 +11,18 @@
 <![endif]-->
 </head>
 <body>
-<?php require "header.php"; ?>
-<div id="wrapper">
-	<div id="welcome" class="wrapper-style1">
-		<?php require "panier.php"; ?>
-		<div class="title">
-			<img src="images/logo.jpg" />
-			<h2>Votre pharmacie à portée de clics</h2>
-	</div>
-	<?php
+    <?php  
+        include_once "header.php"; 
+    ?>
+    <div id="wrapper">
+        <div id="welcome" class="wrapper-style1">
+            <div class="title">
+                <img src="images/logo.jpg" />
+            </div>
+        </div>
+	<div id="page" class="container">
+	<?php include_once "panier.php"; ?>
+		<?php
             @session_start();
             include_once ('M/produit_DAO.php');
             include_once('M/pharma.php');
@@ -37,40 +40,43 @@
             $produit = $produitDAO->getProduitById($id);
                 
         ?>
-	<div id="page" class="container">
+        <div id="content">
+        <div class="titreproduit">
 		<h1><?php echo $produit->getNom();?></h1>
 			<img src=<?php echo 'images/'.$produit->getNom().'.jpg'?> alt="" /><br/>
-			<span>
-                            <?php echo 'Lot n°: '.$produit->getNumLot().'<br/>'?>
-                            <?php echo 'Fabriquant : '.$produit->getNomFabriquant().'<br/>'?>
-                            <?php echo 'Expire le : '.$produit->getDateExpiration().'<br/>'?>
-                            <?php echo 'Type : '.$produit->getLibClassePharma().'<br/>'?>
-                            <?php echo 'Stock : '.$produit->getStock() > 5 ? 'Epuisé' : 'En stock'.'<br/>'?>
-			</span><br/><br/><br/>
-			
+        </div>
+			<div class="infoproduit">
+                <?php echo 'Lot n°: '.$produit->getNumLot().'<br/>'?>
+                <?php echo 'Fabriquant : '.$produit->getNomFabriquant().'<br/>'?>
+                <?php echo 'Expire le : '.$produit->getDateExpiration().'<br/>'?>
+                <?php echo 'Type : '.$produit->getLibClassePharma().'<br/>'?>
+                <?php echo 'Stock : '.$produit->getStock() > 5 ? 'Epuisé' : 'En stock'.'<br/>'?>
+
+			<br/><br/>
 <form method="post" action="scripts/traitements.php">
 	<input type="hidden" name="id_form" value="3">
 	<input type="hidden" name="id_produit" value="<?php echo $produit->getId();?>">
 	<input type="submit" name="plus" value="Acheter" class="button">
 </form>
-
+            </div>
+        </div>
 	</div>
 	
-	<div id="footer" class="container">
-		<div>
-			<h2>DRUGSTORE</h2>
-			<span class="byline">Votre pharmacie à portée de clics.</span> </div>
-		<!--
-		<ul class="contact">
-			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
-			<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-			<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-		</ul>
-		-->
-	</div>
-	</div>
-</div>
+        <div id="footer" class="container">
+                <h2>DRUGSTORE</h2>
+                <span class="byline">Votre pharmacie à portée de clics.</span> 
+        </div>
+    </div>
 </body>
 </html>
+
+
+<!--
+        <div id="page" class="container">
+		
+                <?php include_once "panier.php"; ?>
+            	<?php require "liste.php"; ?>
+        </div>
+        
+-->
+

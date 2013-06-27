@@ -1,9 +1,8 @@
-<div id="page" class="container">
-		
+
 		<div id="content">
-			<h2>Produits</h2>
+			<h1>Produits</h1>
 			<span class="byline">Votre pharmacie à portée de clics.</span>
-			<br/>
+			<br/><br/>
 		
                         <?php 
                         
@@ -19,34 +18,38 @@
                             $currentPage = $_SERVER['SCRIPT_NAME'];
                             //echo $currentPage;
                             $list = array();
+/*
+<<<<<<< HEAD
+                            if($currentPage == '/workspaceTristan/drugstore/pharmacie.php'){
+                                $list = $produitDAO->getAllPharma();
+                            } else if ($currentPage == "/workspaceTristan/drugstore/parapharmacie.php"){
+=======
+*/
                             if($currentPage == '/drugstore/pharmacie.php'){
                                 $list = $produitDAO->getAllPharma();
                             } else if ($currentPage == "/drugstore/parapharmacie.php"){
+                            
                                 $list = $produitDAO->getAllParapharma();
                             }
                             if($list == null){
-                                echo 'nothing here';
+                                $list = $produitDAO->getAllParapharma();
                             }
                             foreach ($list as $produit) {
                         ?>
 			<div class="produit">
 				<table>
 					<tr>
-						<td><img src=<?php echo 'images/'.$produit->getNom().'.jpg'?> alt="" /></td>
+						<td><a href="fiche_produit.php?id=<?php echo $produit->getId()?>"><img src=<?php echo 'images/'.$produit->getNom().'.jpg'?> alt="" /></a></td>
 					</tr>
 					<tr>
 						<td><h2><?php echo $produit->getNom()?></h2></td>
 					</tr>
 					<tr>
-						<td>Prix : <?php echo $produit->getPrix()?></td>
-					</tr>
-					<tr>
-						<td><a href="fiche_produit.php?id=<?php echo $produit->getId()?>" class="button">Voir</a></td>
+						<td><h3><?php echo $produit->getPrix()?>€</h3></td>
 					</tr>
 				</table>
 			</div>
                         <?php } ?>
 		
 	</div>
-</div>
 </div>

@@ -16,15 +16,17 @@
     ?>
     <div id="wrapper">
         <div id="welcome" class="wrapper-style1">
-        <?php  
-            include_once "panier.php"; ?>
             <div class="title">
                 <img src="images/logo.jpg" />
             </div>
         </div>
-
-        <?php require "liste.php"; ?>
-
+        
+        <div id="page" class="container">
+		
+                <?php include_once "panier.php"; ?>
+            	<?php require "liste.php"; ?>
+        </div>
+        
         <div id="footer" class="container">
                 <h2>DRUGSTORE</h2>
                 <span class="byline">Votre pharmacie à portée de clics.</span> 
