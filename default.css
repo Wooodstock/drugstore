@@ -52,13 +52,15 @@ h2
 }
 
 h3
-{
-	font-size: 1.6em;
-}
-h4
-{
+{
 	color: #6fb43f;
 	font-size: 1.6em;
+}
+
+h4
+{
+	color: #000;
+	font-size: 1.2em;
 	margin : 0px;
 }
 
@@ -78,6 +80,7 @@ strong
 
 a
 {
+	cursor:  pointer;
 	color: #222222;
 }
 
@@ -120,9 +123,15 @@ hr
 	float : left;
 	margin: 0em;
 	text-align: center;
-	width : 80%;
+	width : 100%;
 }
 
+.title:after
+{
+	content: '';
+	display: block;
+	border-top: solid 1px #dbdbdb;
+}
 .title img
 {
 	width : 600px;	
@@ -248,6 +257,7 @@ ul.contact li a.icon-rss:before
 	background: #F2600B;
 }
 .button {
+	cursor:  pointer;
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -271,6 +281,7 @@ ul.contact li a.icon-rss:before
 }
 
 .buttonpanier {
+	cursor:  pointer;
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -282,11 +293,10 @@ ul.contact li a.icon-rss:before
 	display:inline-block;
 	color:#777777;
 	font-family:arial;
-	font-size:20px;
+	font-size: 12px;
 	font-weight:normal;
-	width : 15px;
-	padding : 0px 0px 6px 6px;
-	height : 15px;
+	width : 20px;
+	height : 20px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #ffffff;
 }
@@ -321,6 +331,7 @@ ul.contact li a.icon-rss:before
 }
 
 #log{
+	width : 30%;
     margin : 2em 0em;
 }
 
@@ -363,7 +374,8 @@ ul.contact li a.icon-rss:before
 
 .container
 {
-	width: 1200px;
+	width: 100%;
+	min-width : 800px;
 	margin: 0px auto;
 }
 
@@ -416,6 +428,7 @@ ul.contact li a.icon-rss:before
 {
 	position: relative;
 	height: 140px;
+	min-width: 800px;
 }
 
 /*********************************************************************************/
@@ -426,8 +439,8 @@ ul.contact li a.icon-rss:before
 {
 	position: absolute;
 	left: 0;
-	margin-top: 0.5em;
-	width: 100%;
+	margin : 2.5em 0em 0em 1.5em;
+	width: 30%;
 }
 
 #login h1
@@ -489,7 +502,7 @@ ul.contact li a.icon-rss:before
 {
 	display: block;
 	padding: 0.80em 1.5em;
-	letter-spacing: 0.25em;
+
 	text-decoration: none;
 	font-size: 0.80em;
 	font-weight: 600;
@@ -515,40 +528,158 @@ ul.contact li a.icon-rss:before
 #panier
 {
 	margin : 0px;
-	padding : 0px;
 	float : left;
-	width : 20%;
+	width : 200px;
+	min-width : 280px;
+
 }
-/** PAGE */
+
+#panier .titre
+{
+	border-bottom: solid 1px #dbdbdb; 		
+	margin: 0px;
+	padding : 0.8em 0em 0.8em 0.8em;
+
+}
+#panier .totandform
+{		
+	display: block;
+	margin: 0px;
+	height: 100%;
+	padding : 0.8em 0em 0.8em 0.8em;
+
+} 
+
+#panier h4
+{
+	float: left;
+	padding : 0.5em 0em;
+	}
+#panier .totandform input
+{		
+	float : right;
+	margin-right: 10px;
+} 
+#panier table{
+	text-align: center;
+	width : 100%;
+  border: 0px solid #dbdbdb;
+  border-spacing: 0px;
+}
+
+#panier table thead tr{
+  font-size: 14px;
+}
+
+#panier table thead tr th{
+  border-bottom: 2px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  margin: 0px;
+  padding: 2px;
+  background-color: #cccccc;
+}
+
+#panier table tr {
+  color: black;
+  font-size:12px;
+  background-color: white;
+}
+
+#panier table tr.odd {
+  background-color: #AAAAAA;
+}
+
+#panier table tr:nth-child(2n+1)
+{
+    background-color: #f0f0f0;
+}
+
+#panier table tr td, th{
+	
+  border-bottom: 1px solid #dbdbdb;
+  padding: 2px;
+}
+
+#ligne1
+{
+	text-align: center;
+	width : 20px;
+}
+
+a:link{
+  font-family:arial, monospace;
+  text-decoration: none;
+  color: teal;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a:visited{
+  color:black;
+  text-decoration: none;
+}
+
 
 #page
 {
 	overflow: hidden;
-	padding: 0em 0em 5em 0em;
 }
 
 /** CONTENT */
 
 #content
 {
+	border-left: solid 1px #dbdbdb; 	
 	float: left;
 	width: auto;
+	padding : 0.8em 0em 0.8em 1.5em;
+	min-height: 300px;
+	width : 70%;
 }
 
-
-#page .produit
+.titreproduit img
 {
-	margin: 5px;
-	text-align: left;
-	border-style:groove;
+	float: left;
+	width : 300px;
+}
+.infoproduit 
+{
+
+	font-size: 14px;
+	font-weight: 100;
 	float: left;
 }
+
+.produit 
+{
+	float: left;
+}
+#page .produit img
+{
+	max-width: 200px;
+	border: solid 1px #dbdbdb;
+}
+
 #page .produit .button
 {
 }
+
 #page .produit h2
 {
-	font-size: 1.8em;
+	font-size: 14px;
+	font-weight: 100;
+	
+}
+
+#page .produit h3
+{
+	color: #6fb43f;
+	font-size: 1em;
+	font-weight: 200;
+	color: 
+	
 }
 
 #page h3
@@ -574,6 +705,8 @@ ul.contact li a.icon-rss:before
 
 #footer
 {
+	border-top: solid 1px #dbdbdb;
+	background: #2F2F2F url(images/bg01.jpg) repeat;
 	overflow: hidden;
 	padding: 5em 0em;
 	text-align: center;
@@ -616,7 +749,8 @@ ul.contact li a.icon-rss:before
 	font-weight: 400;
 	font-size: 0.90em;
 	color: #6F6F6F;
-}
+}
+
 #welcome.wrapper-style1
 {
 	border-bottom: 1px;

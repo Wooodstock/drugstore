@@ -4,7 +4,7 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <div id="header" class="container">
-	<div id="login">
+	
 		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
 		<?php
                         include_once('M/produit.php');
@@ -18,7 +18,6 @@ and open the template in the editor.
 			else{
 				require "login.php";
 			}?>
-	</div>
 	<div id="menu">
 		<ul>
                     <li class="current_page_item"><a href="index.php" accesskey="1" title="">Home</a></li>

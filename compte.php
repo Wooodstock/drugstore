@@ -11,41 +11,23 @@
 <![endif]-->
 </head>
 <body>
-<div id="header" class="container">
-	<div id="login">
-		<!-- <h1><a href="#">DRUGSTORE</a></h1> -->
-		
-		<?php require "login.php"; ?>
-	</div>
-	<div id="menu">
-		<ul>
-			<li class="current_page_item"><a href="#" accesskey="1" title="">Home</a></li>
-			<li><a href="#" accesskey="2" title="">Pharmacie</a></li>
-			<li><a href="#" accesskey="3" title="">Parapharmacie</a></li>
-			<li><a href="#" accesskey="4" title="">Mon Compte</a></li>
-			<li><a href="#" accesskey="5" title="">Contact</a></li>
-		</ul>
-	</div>
-</div>
-<div id="wrapper">
-    	<div id="welcome" class="wrapper-style1">
-			<?php require "panier.php"; ?>
-			<div class="title">
-				<img src="images/logo.jpg" />
-				<h2>Votre pharmacie à portée de clics</h2>
-			</div>
-    	</div>
+    <?php  
+        include_once "header.php"; 
+    ?>
+    <div id="wrapper">
+        <div id="welcome" class="wrapper-style1">
+            <div class="title">
+                <img src="images/logo.jpg" />
+            </div>
+        </div>
+        
         <div id="page" class="container">
-                        <div id="content">
-                                <?php require "form_compte.php"; ?>
-                </div>
+            <?php include_once "form_compte.php"; ?>
         </div>
     </div>
     <div id="footer" class="container">
-		<div>
-			<h2>DRUGSTORE</h2>
-			<span class="byline">Votre pharmacie à portée de clics.</span> </div>
+                <h2>DRUGSTORE</h2>
+                <span class="byline">Votre pharmacie à portée de clics.</span> 
     </div>
-</div>
 </body>
 </html>
