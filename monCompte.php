@@ -2,9 +2,16 @@
 
 include_once('C/WFcommande.php');
 @session_start(); 
-	
 $listeCommande = array();
-$listeCommande = $_SESSION['commande']->listingCommandePrep();
+if(isset($_SESSION['commande'])){
+    $listeCommande = $_SESSION['commande']->listingCommandePrep();
+}
+else{
+    $_SESSION['commande'] = new WFcommande();
+    $listeCommande = $_SESSION['commande']->listingCommandePrep();
+}
+
+
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -27,12 +34,12 @@ $listeCommande = $_SESSION['commande']->listingCommandePrep();
         <div id="welcome" class="wrapper-style1">
         <center><h1>Mon Compte</h1></center>
         </div>
-        <?php if($_SESSION['user'] == 'client'){?>   
+        <?php if($_SESSION['user'] == 'preparateur'){?>   
         	<div id="content_preparateur">	        	
 	        	<div id="listing_commandes">
-		        	<?php
+		        	<?php 
 		        		foreach($listeCommande as $commande){?></br></br></br>
-		        			Commande n°: <?php /*echo $commande->getId();*/ ?> du <?php echo $commande->getDate(); ?><br>
+		        			Commande n°: <?php echo $commande->getId().'<br>' ?> du <?php echo $commande->getDate(); ?><br>
 		        			Etat: <?php echo $commande->getEtat(); ?></br> 
 		        			<b>Listing ParaPharma:</b><?php 
 			        		foreach($commande->getCommandePara()->getListePara() as $item){

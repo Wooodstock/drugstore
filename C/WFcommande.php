@@ -51,9 +51,9 @@ Class WFcommande{
 	}
 	
 	public function listingCommandePrep(){
-		//Connexion DAO; 
-		//c’est ici que l'on scotche!
-		return array($this->commandepublic);
+                $commande_DAO = new Commande_DAO(null);
+                $commandes = $commande_DAO->getAllCommandesEnCour();
+		return $commandes;
 	}
 	
 	//---------ACTION COMMANDE PARA PHARMA------------------------------

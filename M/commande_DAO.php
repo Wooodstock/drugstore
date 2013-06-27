@@ -13,6 +13,7 @@
 
 include_once('DAO.php');
 include_once('client.php');
+include_once('client_DAO.php');
 include_once('commandeClient.php');
 include_once('commandePara.php');
 include_once('commandePharma.php');
@@ -113,11 +114,8 @@ class Commande_DAO {
     
     
     public function getCommandeById($id){
-        $this->conn = $this->DAO->connect();
         
-        
-        
-        $reponse = $this->conn->prepare('SELECT * FROM COMMANDE WHERE ID_COMMMANDE = ?');
+        $reponse = $this->conn->prepare('SELECT * FROM COMMANDE WHERE ID_COMMANDE = ?');
         $reponse->execute(array($id));
         $donnee = $reponse->fetch();
         
@@ -130,15 +128,16 @@ class Commande_DAO {
         
         $commandePara = $this->getCommandeParaById($id);
         $commandePharma = $this->getCommandePharmaByIdCommande($id);
-       
+        
         $commande = new CommandeClient($commandePara, $commandePharma, $date, $etat, $client);
+        $commande->setId($id);
         return $commande;
     }
     
 
     public function getCommandePharmaByIdCommande($idCommande){
             // ON récupère la commande pharma By ID commande
-            $reponse = $this->conn->prepare('SELECT * FROM COMMANDE_PHARMA WHERE ID_COMMMANDE = ?');
+            $reponse = $this->conn->prepare('SELECT * FROM COMMANDE_PHARMA WHERE ID_COMMANDE = ?');
             $reponse->execute(array($idCommande));
             $donnee = $reponse->fetch();
             if($donnee == null){
@@ -147,8 +146,10 @@ class Commande_DAO {
             
             $id = $donnee['ID_COMMANDE_PHARMA'];
 
-            $reponse = $this->conn->prepare('SELECT * FROM AVOIR2 WHERE ID_COMMMANDE_PHARMA = ?');
+            $reponse = $this->conn->prepare('SELECT * FROM AVOIR2 WHERE ID_COMMANDE_PHARMA = ?');
             $reponse->execute(array($id));
+            
+            
             
             $listeItemPharma = array();
             while($donnee = $reponse->fetch()){
@@ -165,18 +166,19 @@ class Commande_DAO {
     }
     
     public function getCommandeParaById($idCommande){
-            $reponse = $this->conn->prepare('SELECT * FROM COMMANDE_PARA WHERE ID_COMMMANDE_PARA = ?');
+            $reponse = $this->conn->prepare('SELECT * FROM COMMANDE_PARA WHERE ID_COMMANDE_PARA = ?');
             $reponse->execute(array($idCommande));
             $donnee = $reponse->fetch();
             if($donnee == null){
+                echo 'commande para null';
                 return null;
             }
             
             $listeItemPara = array();
             
-            $id = $donnee['ID_COMMMANDE_PARAPHARMA'];
+            $id = $donnee['ID_COMMANDE_PARAPHARMA'];
 
-            $reponse = $this->conn->prepare('SELECT * FROM AVOIR WHERE ID_COMMMANDE_PARAPHARMA = ?');
+            $reponse = $this->conn->prepare('SELECT * FROM AVOIR WHERE ID_COMMANDE_PARAPHARMA = ?');
             $reponse->execute(array($id));
             
             while($donnee = $reponse->fetch()){
@@ -198,7 +200,7 @@ class Commande_DAO {
     
     public function getQuestionnaires($idCommandePara){
         
-            $reponse = $this->conn->prepare('SELECT * FROM REPONSE WHERE ID_COMMMANDE_PARAPHARMA = ?');
+            $reponse = $this->conn->prepare('SELECT * FROM REPONSE WHERE ID_COMMANDE_PARAPHARMA = ?');
             $reponse->execute(array($idCommandePara));
             $questionnaires = array();
             
@@ -220,10 +222,14 @@ class Commande_DAO {
     }
     
     
-    public function getAllCommandeEnCour(){
-            $reponse = $this->conn->prepare('SELECT ID_COMMANDE FROM COMMANDE WHERE ETAT_COMMANDE != "Valider"');
-            $commandes = array();
+    public function getAllCommandesEnCour(){
             
+            
+            $DAO = new DAO('PHARMAWEB', 'admin');
+            $this->conn = $DAO->connect();
+            $reponse = $this->conn->prepare('SELECT ID_COMMANDE FROM COMMANDE WHERE ETAT_COMMANDE != ?');
+            $reponse->execute(array('Valider'));
+            $commandes = array();
             while($donnee = $reponse->fetch()){
                 array_push($commandes, $this->getCommandeById($donnee['ID_COMMANDE']));
             }
