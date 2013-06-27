@@ -31,7 +31,7 @@ class WFconnexion{
 		if($this->client != null){
 			$_SESSION['login'] = $this->client->getLogin();
                         $_SESSION['user'] = 'client';
-                        
+                        $_SESSION['client'] = $this->client;
                         //Creation du panier
                         $_SESSION['panier'] = new CtrlPanier();
 

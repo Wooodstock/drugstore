@@ -22,6 +22,7 @@ Class WFcommande{
 	public function createCommande($date){
 	
 		$panier = $_SESSION['panier'];
+                $client = $_SESSION['client'];
 	
         $commandePara = new CommandePara(false);
         $commandePharma = new CommandePharma();
@@ -40,7 +41,7 @@ Class WFcommande{
         $commandePara->setListePara($itemsPara);
         $commandePharma->setListePharma($itemsPharma);
         
-        $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COUR');
+        $this->commandepublic = new CommandeClient($commandePara, $commandePharma, $date, 'EN COUR', $client);
         
 	}
 	
@@ -57,9 +58,9 @@ Class WFcommande{
 	
 	
 		//question
-		$question1 = new Question(1, 'Question numéro 1 sur les allergies?');
-		$question2 = new Question(2, 'Question numéro 2 sur la grossesse?');
-		$question3 = new Question(3, 'Question numéro 3 sur la taille du zizi?');
+		$question1 = new Question(1, 'Question 1 : Prenez vous un traitement ?');
+		$question2 = new Question(2, 'Question 2 : Antécédent médicaux dans la famille ?');
+		$question3 = new Question(3, 'Question 3 : Etes vous sujet aux allergies ?');
 		
 		
 		//reponse

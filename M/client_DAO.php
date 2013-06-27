@@ -53,6 +53,19 @@ class Client_DAO {
             return false;
         }
     }
+    
+    public function getUserById($id){
+        $this->conn = $this->DAO->connect();
+        $reponse = $this->conn->prepare('SELECT * FROM CLIENT WHERE ID_CLIENT = ?');
+        $reponse->execute(array($id));
+        $donnee = $reponse->fetch();
+        if($donnee != null){
+            $client = new Client($donnee['ID_CLIENT'], $donnee['NOM_CLIENT'], $donnee['STATUT_CLIENT'], $donnee['ADRESSE_CLIENT'], $donnee['TELEPHONE_CLIENT'], $donnee['MODE_REMB_CLIENT'], $donnee['COTISATION_CLIENT'], $donnee['LOGIN_CLIENT'], $donnee['PASSWORD_CLIENT']);
+            return $client;
+        } else {
+            return null;
+        }   
+    }
 }
 
 ?>
