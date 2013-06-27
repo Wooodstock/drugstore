@@ -9,6 +9,7 @@ include_once('/../M/question.php');
 include_once('/../M/questionnaire.php');
 include_once('/../M/commande_DAO.php');
 include_once('ctrlPanier.php');
+
 @session_start();
 
 Class WFcommande{

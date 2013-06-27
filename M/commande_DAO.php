@@ -14,9 +14,11 @@
 include_once('DAO.php');
 include_once('client.php');
 include_once('client_DAO.php');
+include_once('produit_DAO.php');
 include_once('commandeClient.php');
 include_once('commandePara.php');
 include_once('commandePharma.php');
+@session_start();
 
 class Commande_DAO {
     
@@ -67,10 +69,8 @@ class Commande_DAO {
             // et l'id de la commande para
 
             foreach($questionnaires as $questionnaire){
-            	echo $questionnaire->getReponse()->getLibelle();
                 $idQuestion = $questionnaire->getQuestion()->getId();
                 $reponseALaQuestion = $questionnaire->getReponse()->getLibelle();
-                echo 'coco';
                 
                 $reponse = $this->conn->prepare('CALL PKG_COMMON.insert_Reponse(? , ?, ?)');
                 $reponse->execute(array($reponseALaQuestion, $idQuestion, $idCommandePara ));
@@ -101,7 +101,7 @@ class Commande_DAO {
             $idCommandePharma = $donnee['MAX(ID_COMMANDE_PHARMA)'];
             
             // pour chaque item on sauvegarde le produit dans pharma et la quantité dans avoir2
-            foreach ($listePara as $item){
+            foreach ($listePharma as $item){
                 $idProduit = $item->getProduit()->getId();
                 $qte = $item->getQuantite();
                 
@@ -145,15 +145,13 @@ class Commande_DAO {
             }
             
             $id = $donnee['ID_COMMANDE_PHARMA'];
-
             $reponse = $this->conn->prepare('SELECT * FROM AVOIR2 WHERE ID_COMMANDE_PHARMA = ?');
             $reponse->execute(array($id));
             
             
-            
             $listeItemPharma = array();
-            while($donnee = $reponse->fetch()){
-                $produit_DAO = new Produit_DAO($_SESSION['user']);
+            while($donnee = $reponse->fetch()){ 
+                $produit_DAO = new Produit_DAO(null);
                 $produit = $produit_DAO->getProduitById($donnee['ID_PRODUIT_PHARMA']);
                 $item = new Item($produit, $donnee['QTE_PHARMA']);
                 array_push($listeItemPharma, $item);
@@ -161,35 +159,33 @@ class Commande_DAO {
             
             //RECUP ALL ITEM in AVOIR
             
-            $commandePharma = new CommandePharma($listeItemPharma);
+            $commandePharma = new CommandePharma();
+            $commandePharma->setListePharma($listeItemPharma);
             return $commandePharma;
     }
     
     public function getCommandeParaById($idCommande){
-            $reponse = $this->conn->prepare('SELECT * FROM COMMANDE_PARA WHERE ID_COMMANDE_PARA = ?');
-            $reponse->execute(array($idCommande));
-            $donnee = $reponse->fetch();
+            $reponse2 = $this->conn->prepare('SELECT * FROM COMMANDE_PARAPHARMA WHERE ID_COMMANDE_PARAPHARMA = ?');
+            $reponse2->execute(array($idCommande));
+            $donnee = $reponse2->fetch();
             if($donnee == null){
-                echo 'commande para null';
                 return null;
             }
             
             $listeItemPara = array();
             
             $id = $donnee['ID_COMMANDE_PARAPHARMA'];
-
             $reponse = $this->conn->prepare('SELECT * FROM AVOIR WHERE ID_COMMANDE_PARAPHARMA = ?');
             $reponse->execute(array($id));
             
             while($donnee = $reponse->fetch()){
-                $produit_DAO = new Produit_DAO($_SESSION['user']);
+                $produit_DAO = new Produit_DAO(null);
                 $produit = $produit_DAO->getProduitById($donnee['ID_PRODUIT_PARAPHARMA']);
                 $item = new Item($produit, $donnee['QTE_PARAPHARMA']);
                 array_push($listeItemPara, $item);
             }
             
-            $questionnaires = getQuestionnaires($id);
-            
+            $questionnaires = $this->getQuestionnaires($id);
             //RECUP ALL ITEM in AVOIR
             
             $commandePara = new CommandePara($donnee['VALIDER_COMMANDE_PARAPHARMA']);
@@ -213,7 +209,6 @@ class Commande_DAO {
                 
                 $reponseQuestion = new Reponse($donnee['LIBELLE_REPONSE']);
                 $question = new Question($donnee['ID_QUESTION'], $donneeInside['LIBELLE_QUESTION']);
-                
                 $questionnaire = new Questionnaire($question, $reponseQuestion);
                 array_push($questionnaires, $questionnaire);
             } 
@@ -233,7 +228,6 @@ class Commande_DAO {
             while($donnee = $reponse->fetch()){
                 array_push($commandes, $this->getCommandeById($donnee['ID_COMMANDE']));
             }
-            
             return $commandes;
     }
     
