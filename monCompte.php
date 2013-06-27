@@ -34,7 +34,7 @@ else{
         <div id="welcome" class="wrapper-style1">
         <center><h1>Mon Compte</h1></center>
         </div>
-        <?php if($_SESSION['user'] == 'preparateur'){?>   
+        <?php if($_SESSION['user'] == 'preparateur' || $_SESSION['user'] == 'pharmacien'){?>   
         	<div id="content_preparateur">	        	
 	        	<div id="listing_commandes">
 		        	<?php 
