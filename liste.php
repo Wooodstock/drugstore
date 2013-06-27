@@ -19,9 +19,9 @@
                             $currentPage = $_SERVER['SCRIPT_NAME'];
                             //echo $currentPage;
                             $list = array();
-                            if($currentPage == '/WorkspaceTristan/drugstore/pharmacie.php'){
+                            if($currentPage == '/WorkspaceMac/drugstore/pharmacie.php'){
                                 $list = $produitDAO->getAllPharma();
-                            } else if ($currentPage == "/WorkspaceTristan/drugstore/parapharmacie.php"){
+                            } else if ($currentPage == "/WorkspaceMac/drugstore/parapharmacie.php"){
                                 $list = $produitDAO->getAllParapharma();
                             }
                             if($list == null){
