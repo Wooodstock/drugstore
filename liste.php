@@ -25,9 +25,9 @@
                             } else if ($currentPage == "/workspaceTristan/drugstore/parapharmacie.php"){
 =======
 */
-                            if($currentPage == '/WorkspaceMac/drugstore/pharmacie.php'){
+                            if($currentPage == '/workspaceTristan/drugstore/pharmacie.php'){
                                 $list = $produitDAO->getAllPharma();
-                            } else if ($currentPage == "/WorkspaceMac/drugstore/parapharmacie.php"){
+                            } else if ($currentPage == "/workspaceTristan/drugstore/parapharmacie.php"){
                             
                                 $list = $produitDAO->getAllParapharma();
                             }
