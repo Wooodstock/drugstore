@@ -101,6 +101,7 @@ function traitementCommande(){
 	
 	else if(isset($_POST['commandeValidation'])){
 		$_SESSION['commande']->valider($_POST['id_commande']);
+		header('Location: ../monCompte.php');
 	}
 	
         
